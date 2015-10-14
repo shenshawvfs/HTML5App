@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+        <!-- Demo Copyright Kibble Games Inc in partnership with Vancouver Film School -->
+        <title>App!</title>
+
+         <meta name="description" content="Angular App">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+        
+        <script src="//kibblegames.github.io/js/klib.js"></script> 
+                        
+        <script src="js/main.js"></script>
+        <script src="js/controllers/App.js"></script>
+        <script src="js/controllers/Login.js"></script>
+        <script src="js/directives/Draggable.js"></script>
+        <script src="js/directives/HideMe.js"></script>
+        <script src="js/services/Service.js"></script>
+        
+    </head>
+
+   	<body ng-controller="AppViewController as view">
+
+        <div>
+            <h1 id="title"> {{ view.info.title }} </h1>
+            <h3>by {{ view.info.author }} </h3>
+        </div>
+        
+        <div id='login' ng-controller="LoginController as login" >
+        
+            <form novalidate class="simple-form">
+                Name: <input type="text" ng-model="user.name" />
+                E-mail: <input type="email" ng-model="user.email" />
+                <button ng-click="login.reset(user)">Reset</button>
+                <button ng-click="login.update(user)">Save</button>
+                <button ng-click="login.post(user)">AJAX Me</button>
+            </form>
+            
+            <pre>form = {{ user|json }}</pre>
+            <pre>master = {{ login.master|json }}</pre>
+            
+        </div>
+        
+        <div id="app-area">
+        
+            <div id="timer">{{ view.timer.wait.time }}</div> 
+            <button ng-click="view.timer.start()">Start</button>
+            <button ng-click="view.timer.stop()">Stop</button>
+            
+            <div id="app.currentScreen" >
+                <div id="screen" class="appScreen" >
+    
+                    <!-- Next screen HTML goes here -->
+
+                </div>
+            </div>
+        </div>
+        <div class='clear'></div>
+    
+    </body>
+</html>
