@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- 
+    HTML5 App Template
+
+    Copyright 2014-2016, Vancouver Film School, in cooperation with Kibble Games Inc.
+
+    Author: Scott Henshaw
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
+ -->
+<html>
+    <head>
+        <title>HTML5 App</title>
+
+        <!-- Base style sheet add your default styles here-->
+        <link rel='stylesheet' href='css/style.css'>
+        
+        <!-- Uncomment the following line to enable media queries -->
+        <!-- <link rel='stylesheet' href='css/media.css'> -->
+
+        <!-- This is the key CDN to pull jQuery from -->
+        <!-- To operate offline we may want these to load from a local source -->
+        <script src='//ajax.googleapis.com/ajax/libs/jquery/1.11./jquery.min.js'></script>
+
+        <!-- 
+        Kibble Games provide a JS/JQuery extension set to extend objects (inheritance)
+        and add some dynamic loading capabilities to jQuery
+        
+        newObject.extends( ParentObject );
+        
+           and
+           
+        $.include( 'js/object.js' );
+        -->
+        <script src='//kibblegames.github.io/js/klib.js'></script>
+                
+        <!-- Uncomment one of these, are we building an app or a game? -->
+        
+        <!-- Local styles -->
+        <style type='text/css'>
+        </style>
+
+   </head>
+   
+   <!-- The Structure of your app is here - Box model blocks of area -->
+   <body>
+   		<div id='app-frame'>
+   		
+  		    <!-- navigation and menuing system -->
+            <nav id='title' class='header container'>
+            	<h3 class='content'>Nav Menu Area</h3>
+            </nav>
+    
+            <!-- Sidebar if applicable -->
+            <aside id='sidebar' class='main container'>
+            	<div id='sidebar-data' class='content'>
+            		<h4>Sidebar Area</h4>
+                </div>
+            </aside>
+    
+            <!-- Your main app area -->
+            <section id='wrapper' class='main container'>
+                <div id='app-area' class='content'>
+                
+                    <h3>My main app area here</h3>
+                    <!-- Add your HTML5 tags here to structure your app's UI -->
+                    
+                </div>
+            </section>
+		</div>
+
+        <!-- 
+        Load your app core/amin here, while not strictly W3C compliant it guarentees 
+        that the basic HTML gets loaded and you have something to start 
+        debugging if any of your code fails.
+         -->
+        <script src='js/App.js'></script>
+
+    </body>
+</html>
