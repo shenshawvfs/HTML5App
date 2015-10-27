@@ -6,7 +6,7 @@
  */
 
 body {
-    background-color:black;
+    background-color:white;
 }
 
 body,div {
@@ -15,7 +15,7 @@ body,div {
     border:none;
     color:#fff;
     background-color: grey;
-    font-family: "American Typewriter";
+    font-family: "Helvetica";
 }
 
 /* Styles for illustrating the example */
@@ -43,23 +43,11 @@ div {
     clear: both;
 }
 
-#risk-splash {
-    background-image: url("images/Risk.jpg");
-    background-size: 100% 100%;
-    width: 512px;
-    height: 512px;
-}
-
-.appScreen {
+.app-screen {
     position: relative;
     margin: 0 auto;
     width: 1024px;
     height: 768px;
-}
-
-.army {
-    width: 16px;
-    height: 16px;
 }
 
 .simple-form { }

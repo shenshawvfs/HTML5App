@@ -7,22 +7,20 @@
  * 
  */
 
-// use this to define the Angular module containing the app
-var app = angular.module( 'app', [  
-    //'ngRoute',    
-    'app.services',     // This is a module that we depend on.
-    'app.directives',   // This is a module that we depend on.
-    'app.controllers'   // This is a module that we depend on.
-]);
-
 
 // Module definitions
-app.controllers = angular.module('app.controllers',[]);
-app.directives = angular.module('app.directives',[]);
-app.services = angular.module( 'app.services', []);
+// Declaring multiple 'containers' for various app components allows
+// us to have a much larger app without the complexity.
+// These statements create empty - no dependency namespaces within the
+// angular system.
+angular.module('app.controllers',[]);
+angular.module('app.directives',[]);
+angular.module('app.services', []);
 
 
-
+// This is a special case closure below. Its to be used ONLY if 
+// another templating system is in place. Typically that would be
+// a server side templating system like Django or Jinga
 (function() {
     /*
      * Override the Angular interpolation directive
@@ -37,17 +35,23 @@ app.services = angular.module( 'app.services', []);
      *  
      */
 	/*
-	angular
-		.module( 'app' )
-		.config( config );
-	
-	function config( $interpolateProvider ) {
+	angular	.module('app')
+		.config( config, function config( $interpolateProvider ) {
 	    
 	    $interpolateProvider.startSymbol( '[[' );
-        $interpolateProvider.endSymbol( ']]' );
-	
+        $interpolateProvider.endSymbol( ']]' );	
 	}
 	*/
 })();
 
 
+
+// Declare the app itself and all the dependencies it relies on
+// This can later be used to add routing or other service providers.
+// Angular constructs to add modular functionality to an APP
+var app = angular.module( 'app', [  
+     //'ngRoute',    
+     'app.services',     // This is a module that we depend on.
+     'app.directives',   // This is a module that we depend on.
+     'app.controllers'   // This is a module that we depend on.
+]);

@@ -12,31 +12,43 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
         
+        <!-- 
+        
+         Uncomment these if you really need jQuery.   You shouldn't as modern Angular covers
+         many if not all of jQuery functionality.
+         
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//kibblegames.github.io/js/klib.js"></script> 
-                        
+         -->               
         <script src="js/main.js"></script>
         <script src="js/controllers/App.js"></script>
         <script src="js/controllers/Login.js"></script>
         <script src="js/directives/Draggable.js"></script>
         <script src="js/directives/HideMe.js"></script>
-        <script src="js/services/Service.js"></script>
-        
+        <script src="js/services/Service.js"></script>        
     </head>
 
    	<body ng-controller="AppViewController as view">
 
         <div>
-            <h1 id="title"> {{ view.info.title }} </h1>
-            <h3>by {{ view.info.author }} </h3>
+            <h1 id="title">{{view.title}} </h1>
+            <h3>by {{view.author}}</h3>
         </div>
         
         <div id='login' ng-controller="LoginController as login" >
         
             <form novalidate class="simple-form">
+                <!--  
+                Angular used the HTML much more, adding directives to enhance and "program"
+                it. Typical is a form where we declare and use a model to contain temp data
+                
+                The 'user' is a js object, as if declaed:
+                
+                    var user = { name: "", email: "" };
+                 -->
                 Name: <input type="text" ng-model="user.name" />
                 E-mail: <input type="email" ng-model="user.email" />
                 <button ng-click="login.reset(user)">Reset</button>
@@ -44,21 +56,22 @@
                 <button ng-click="login.post(user)">AJAX Me</button>
             </form>
             
-            <pre>form = {{ user|json }}</pre>
-            <pre>master = {{ login.master|json }}</pre>
+            <pre>form = {{user|json}}</pre>
+            <pre>master = {{login.master|json}}</pre>
             
         </div>
         
         <div id="app-area">
         
-            <div id="timer">{{ view.timer.wait.time }}</div> 
+            <div id="timer">{{view.timer.time}}</div> 
             <button ng-click="view.timer.start()">Start</button>
             <button ng-click="view.timer.stop()">Stop</button>
             
-            <div id="app.currentScreen" >
-                <div id="screen" class="appScreen" >
+            <div id="app-current-screen" >
+                <div id="screen" class="app-screen" >
     
                     <!-- Next screen HTML goes here -->
+                    
 
                 </div>
             </div>
