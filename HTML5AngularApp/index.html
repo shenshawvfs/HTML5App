@@ -12,29 +12,22 @@
 
         <link rel="stylesheet" href="css/style.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.4.7/angular.js"></script> 
+        <script src="//code.angularjs.org/1.4.7/angular-resource.min.js"></script> 
+        <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
         
-        <!-- 
-        
-         Uncomment these if you really need jQuery.   You shouldn't as modern Angular covers
-         many if not all of jQuery functionality.
-         
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="//kibblegames.github.io/js/klib.js"></script> 
-         -->               
         <script src="js/main.js"></script>
-        <script src="js/controllers/App.js"></script>
-        <script src="js/controllers/Login.js"></script>
         <script src="js/directives/Draggable.js"></script>
         <script src="js/directives/HideMe.js"></script>
-        <script src="js/services/Service.js"></script>        
+        <script src="js/services/LogonService.js"></script>        
+        <script src="js/controllers/App.js"></script>
+        <script src="js/controllers/Login.js"></script>
     </head>
 
    	<body ng-controller="AppViewController as view">
 
         <div>
-            <h1 id="title">{{view.title}} </h1>
+            <h1 id="title">{{view.title}}</h1>
             <h3>by {{view.author}}</h3>
         </div>
         
@@ -71,7 +64,7 @@
                 <div id="screen" class="app-screen" >
     
                     <!-- Next screen HTML goes here -->
-                    
+                    <div ui-view></div>
 
                 </div>
             </div>

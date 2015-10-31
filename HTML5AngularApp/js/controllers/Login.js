@@ -6,29 +6,38 @@
 	 * @author Scott Henshaw
 	 * 
 	 */
-	angular.module( 'app.controllers' )
-		.controller( 'LoginController', function( $scope ) {
-		
-    	    var local = {
-                // local member variables    	        
-                id: null
-    	    };
+	angular.module( 'app.controllers' )	    
+		.controller( 'LoginController', function( $scope, $http, $httpParamSerializerJQLike, LogonService ) {
+				    
+		    // local member variables              
+            var local = {
+            };
     	    
+            // Public $scope variables that templates have access to.
     		var self = this;
     		
     		self.master =  {};
-    		self.info = {
-            };
+    		self.userData = {
+		        name: "",
+		        id: ""
+    		};   
+    		self.status = "off";
             
+    		
     	    self.update = function( user ) {
     	    	
     	    	self.master = angular.copy( user );
     	    };
     	    
-    	    self.post = function( user ) {
-    	    	// Make AJAX $http.post call to server with appId
-    	        // if local.id is not set, get it from server.
-    	    	var appId = local.id;
+    	    
+    	    self.authenticate = function( user ) {
+    	        
+    	        LogonService.authenticate( user )
+    	            .then( function( data ) {
+    	                self.userData.name = LogonService.username;
+    	                self.userData.id = LogonService.id;
+    	                self.status = "on";
+    	        });
     	    };
     	    
     	    self.reset = function() {

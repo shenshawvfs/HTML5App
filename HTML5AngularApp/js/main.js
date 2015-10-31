@@ -7,20 +7,57 @@
  * 
  */
 
-
-// Module definitions
-// Declaring multiple 'containers' for various app components allows
-// us to have a much larger app without the complexity.
-// These statements create empty - no dependency namespaces within the
-// angular system.
+/* 
+ * Module definitions
+ *
+ * Declaring multiple 'containers' for various app components allows
+ * us to have a much larger app without the complexity.
+ * These statements create empty - no dependency namespaces within the
+ * angular system.
+ * 
+ */
 angular.module('app.controllers',[]);
 angular.module('app.directives',[]);
 angular.module('app.services', []);
 
+//Routing
+angular.module('app.controllers', ['ui.router'])
+    .config(['$stateProvider', function( $stateProvider ) {
+        
+        var login = { name: 'login',  url: '/', templateUrl: 'partials/login.html'};
+        var routes = {
+            home: { name: 'home', url: '/login',  parent: login, templateUrl: 'partials/home.html'},
+            main:  { name: 'main',  url: '/main',  parent: login, templateUrl: 'partials/main.html'}
+        };
+    
+        $stateProvider
+            .state( login )
+            .state( routes.home )
+            .state( routes.main );
+    }])
+    
+    .run(['$state', function( $state ) {
+        $state.transitionTo('home'); 
+    }])
+    
+    .controller('MenuController', function( $scope, $state ) {
+    
+        var self = this;
+        self.content = ['home', 'main'];
+    
+        self.setPage = function( page ) {
+            
+            $state.transitionTo( page );
+        };
+    });
 
-// This is a special case closure below. Its to be used ONLY if 
-// another templating system is in place. Typically that would be
-// a server side templating system like Django or Jinga
+
+/* 
+ * This is a special case closure below. Its to be used ONLY if 
+ * another templating system is in place. Typically that would be
+ * a server side templating system like Django or Jinga
+ * 
+ */
 (function() {
     /*
      * Override the Angular interpolation directive
@@ -44,14 +81,15 @@ angular.module('app.services', []);
 	*/
 })();
 
-
-
-// Declare the app itself and all the dependencies it relies on
-// This can later be used to add routing or other service providers.
-// Angular constructs to add modular functionality to an APP
+/* 
+ * Declare the app itself and all the dependencies it relies on
+ * This can later be used to add routing or other service providers.
+ * Angular constructs to add modular functionality to an APP
+ * 
+ */
 var app = angular.module( 'app', [  
-     //'ngRoute',    
      'app.services',     // This is a module that we depend on.
      'app.directives',   // This is a module that we depend on.
-     'app.controllers'   // This is a module that we depend on.
+     'app.controllers',   // This is a module that we depend on.
+     'ui.router'
 ]);
