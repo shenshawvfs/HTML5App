@@ -1,0 +1,12 @@
+    <div class="row">
+        <div class="" ng-controller="MenuController as sideBar">
+            <ul>
+                <li ng-repeat="page in sideBar.content"> 
+                    <button ng-click="sideBar.setPage( page )">{{page}}</button>
+                </li>
+            </ul>
+        </div>
+        <div class="">
+            <div ui-view></div>
+        </div>
+    </div>
