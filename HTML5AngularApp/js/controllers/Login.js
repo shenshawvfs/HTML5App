@@ -7,7 +7,7 @@
 	 * 
 	 */
 	angular.module( 'app.controllers' )	    
-		.controller( 'LoginController', function( $scope, $http, $httpParamSerializerJQLike, LogonService ) {
+		.controller( 'LoginController', function( $scope, $state, LoginService ) {
 				    
 		    // local member variables              
             var local = {
@@ -17,10 +17,8 @@
     		var self = this;
     		
     		self.master =  {};
-    		self.userData = {
-		        name: "",
-		        id: ""
-    		};   
+    		self.username = "";
+		    self.id = "";    		
     		self.status = "off";
             
     		
@@ -32,12 +30,28 @@
     	    
     	    self.authenticate = function( user ) {
     	        
-    	        LogonService.authenticate( user )
-    	            .then( function( data ) {
-    	                self.userData.name = LogonService.username;
-    	                self.userData.id = LogonService.id;
+    	        LoginService.authenticate( user )
+    	            .then( function( obj ) {
+    	                self.username = obj.username;
+    	                self.id = obj.id;
     	                self.status = "on";
-    	        });
+    	                
+    	                $state.transitionTo( 'Main' );
+    	            });
+    	    };
+    	    
+    	    
+    	    self.logoff = function() {
+    	        
+    	        LoginService.logoff()
+    	            .then( function( obj ) {
+    	            
+    	                self.username = "";
+    	                self.id = "";
+    	                self.status = "off";
+    	                
+    	                $state.transitionTo( 'Home' );
+    	            });
     	    };
     	    
     	    self.reset = function() {

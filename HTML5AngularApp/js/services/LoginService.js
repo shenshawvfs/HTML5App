@@ -22,7 +22,7 @@
              */
             $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';            
         })
-		.service( 'LogonService', function( $http, $q, $httpParamSerializerJQLike ) {
+		.service( 'LoginService', function( $http, $q, $httpParamSerializerJQLike ) {
     	
             /** @memberOf LogonService.private */
             var local = {                             
@@ -43,6 +43,7 @@
     	    	    this.demo.user = theUser;
     	    	}
     	    }
+    	    
             
     	    
             self.authenticate = function( user ) {
@@ -109,6 +110,27 @@
                 // notified on completion
                 return clientCallback.promise;
             };
+            
+            
+            
+            self.logoff = function() {
+                
+                var clientCallback = $q.defer();
+                
+                $http.post( 'server/logout/', "" )
+                    .then( function( obj ) {
+                        
+                        var response = obj.data;
+                        
+                        clientCallback.resolve( response );
+                    });
+                
+                // Return a promise here so we can hook our controller up to get
+                // notified on completion
+                return clientCallback.promise;
+            }
+            
+            
             
     	    self.addUser = function( appId, name, email ) { 
     	        //------------------------------------------------------------

@@ -1,19 +1,17 @@
-<!-- 
-login.html template for Risk Demo Copyright Kibble Games Inc in partnership with Vancouver Film School 
-
- -->
-<section id="welcome" ng-controller="LoginController as login">
-
-    <b>Welcome! Please Login!</b>
-    <form ng-submit="login.authenticate(user)" ng-model-options="{debounce:500}">
-        <input class="input login username" type="text"     ng-model="user.name" placeholder="username" /><br>
-        <input class="input login password" type="password" ng-model="user.passwd" placeholder="password" /><br>
-        <input class="input login submit"   type="submit"   placeholder="Login!" />
-    </form>
-    
-    <div>
-    Logged {{login.status}} with id: {{login.userData.id}} <br />
+<!-- Demo Copyright (C) 2015 Kibble Games Inc in partnership with Vancouver Film School -->
+<section id="welcome">
+    <div id="login-server" class="dialog">
+        <h3>Welcome! Please Login!</h3>
+        <form ng-submit="login.authenticate(user)" ng-model-options="{debounce:500}">
+            <input class="input login username" type="text"     ng-model="user.name" placeholder="username" /><br>
+            <input class="input login password" type="password" ng-model="user.passwd" placeholder="password" /><br>
+            <input class="input login submit"   type="submit"   placeholder="Login!" />
+            <input ng-if="login.status=='on'" class="input login submit"   type="submit"   placeholder="Logout" />
+        </form>
+        
+        <div>
+        Logged {{login.status}} <span ng-if="login.status=='on'"> as {{login.username}} <br />
+        id: {{login.id}}</span>
+        </div>    
     </div>
-    
-    
 </section>

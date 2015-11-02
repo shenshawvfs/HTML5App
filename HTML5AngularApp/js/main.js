@@ -24,26 +24,22 @@ angular.module('app.services', []);
 angular.module('app.controllers', ['ui.router'])
     .config(['$stateProvider', function( $stateProvider ) {
         
-        var login = { name: 'login',  url: '/', templateUrl: 'partials/login.html'};
-        var routes = {
-            home: { name: 'home', url: '/login',  parent: login, templateUrl: 'partials/home.html'},
-            main:  { name: 'main',  url: '/main',  parent: login, templateUrl: 'partials/main.html'}
-        };
+        var home = { name: 'Home',  url: '/', templateUrl: 'partials/home.html'};
+        var main = { name: 'Main',  url: '/main',  parent: home, templateUrl: 'partials/main.html'};        
     
         $stateProvider
-            .state( login )
-            .state( routes.home )
-            .state( routes.main );
+            .state( home )
+            .state( main );
     }])
     
     .run(['$state', function( $state ) {
-        $state.transitionTo('home'); 
+        $state.transitionTo('Home'); 
     }])
     
     .controller('MenuController', function( $scope, $state ) {
     
         var self = this;
-        self.content = ['home', 'main'];
+        self.content = ['Home', 'Main'];
     
         self.setPage = function( page ) {
             
