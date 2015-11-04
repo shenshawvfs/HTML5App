@@ -49,7 +49,7 @@
     	    self.register = function( user ) {
     	        
     	        LoginService.register( user )
-    	            .then( function( obj )) {
+    	            .then( function( obj ) {
     	            
     	                self.username = obj.username;
     	                self.id = obj.id;
