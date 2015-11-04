@@ -43,8 +43,7 @@
     	    	    this.demo.user = theUser;
     	    	}
     	    }
-    	    
-            
+    	                
     	    
             self.authenticate = function( user ) {
                 /**
@@ -129,58 +128,43 @@
                 // notified on completion
                 return clientCallback.promise;
             }
+           
             
-            
-            
-    	    self.addUser = function( appId, name, email ) { 
+    	    self.register = function( user ) { 
     	        //------------------------------------------------------------
     	        // Called from form with ng-model collecting data that is passed as aUser
     	        //
-    	    	var ajaxCommand = {
-                	params: { 
-                		'cmd': "createUser",
-                        'appId': appId,
-                		'email': email,
-                		'name': name
-            		},
-                	response: "json"
-                };
-    
-    	    	//$http.post( "//vfs-risk-server.appspot.com/", JSON.stringify( aPlayer), ajaxCommand );        
-    	        $http.post( "server/", JSON.stringify( ajaxCommand.params ), ajaxCommand )       
-    	        	.then( local.handleSuccessfulUpdate, local.handleError );
-    	    }
-    	        	    
-            /** @memberOf Service.private */
-    	    local.handleSuccessfulUpdate = function( obj ) {
-    	        //------------------------------------------------------------
-    	    	// Handle the successful result of an AJAX request
-    	        //
-    	       
-    	        /*
-    	        * @param result: a generic object angular constructs to contain 
-    	        * your data. Its already been decoded from JSON into an object
-    	        * 
-    	        * @param result.data: the part of the generic angular response that
-    	        * is the actual data from your server...
-    	        *  
-    	        */
-    	        var response = obj.data;
+    	        var clientCallback = $q.defer();
     	        
-    	        if (response.errCode < 0) // negative is bad, don't trust the 
-    	            return
-    	    		
-    	    	// Do something with the data...
-    			console.log( "Response success: Data-> " + result.data );
-    	    }
-    	        	    
-            /** @memberOf Service.private */
-    	    local.handleError = function( errorData ) {
-    	        //------------------------------------------------------------      
-    	    	// parse the error data and update whatever scope variables I need to trigger 
-    	    	// an error popup
-    	    	
-    	    	console.log( "Response Error: " + errorData );
+    	        var params = $httpParamSerializerJQLike( user );
+    	        $http.post( "server/register/", params )       
+    	        	.then( function( obj ) {
+            	        //------------------------------------------------------------
+            	    	// Handle the successful result of an AJAX request
+            	        //
+            	       
+            	        /*
+            	        * @param result: a generic object angular constructs to contain 
+            	        * your data. Its already been decoded from JSON into an object
+            	        * 
+            	        * @param result.data: the part of the generic angular response that
+            	        * is the actual data from your server...
+            	        *  
+            	        */
+    	        	    var response = obj.data;
+    	        
+            	        if (response.errCode < 0) // negative is bad, don't trust the result 
+            	            return;
+            	    		
+            	        
+            	    	// Do something with the data...
+            			console.log( "Response success: Data-> " + response.data );
+            			clientCallback.resolve( response );
+    	        	});
+    	        
+                // Return a promise here so we can hook our controller up to get
+                // notified on completion
+                return clientCallback.promise;
     	    }
         
         });  

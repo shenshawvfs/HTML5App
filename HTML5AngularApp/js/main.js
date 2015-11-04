@@ -1,8 +1,9 @@
 /**
  * Angular Main Module
  * 
- * @copyright: (C) 2014-2015 Kibble Games Inc in cooperation with Vancouver Film School.  
- * All Rights Reserved.
+ * @copyright: (C) 2014-2015 Kibble Games Inc in cooperation with 
+ *                             Vancouver Film School.  
+ *                             All Rights Reserved.
  * @author: Scott Henshaw
  * 
  */
@@ -24,18 +25,13 @@ angular.module('app.services', []);
 angular.module('app.controllers', ['ui.router'])
     .config(['$stateProvider', function( $stateProvider ) {
         
-        var home = { name: 'Home',  url: '/', templateUrl: 'partials/home.html'};
-        var main = { name: 'Main',  url: '/main',  parent: home, templateUrl: 'partials/main.html'};        
-    
         $stateProvider
-            .state( home )
-            .state( main );
+            .state( 'Home', { url: '',      templateUrl: 'partials/home.html'})
+            .state( 'Main', { url: 'main',  templateUrl: 'partials/main.html'});
     }])
-    
     .run(['$state', function( $state ) {
         $state.transitionTo('Home'); 
     }])
-    
     .controller('MenuController', function( $scope, $state ) {
     
         var self = this;

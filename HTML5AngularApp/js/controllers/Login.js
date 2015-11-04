@@ -20,14 +20,7 @@
     		self.username = "";
 		    self.id = "";    		
     		self.status = "off";
-            
     		
-    	    self.update = function( user ) {
-    	    	
-    	    	self.master = angular.copy( user );
-    	    };
-    	    
-    	    
     	    self.authenticate = function( user ) {
     	        
     	        LoginService.authenticate( user )
@@ -39,7 +32,6 @@
     	                $state.transitionTo( 'Main' );
     	            });
     	    };
-    	    
     	    
     	    self.logoff = function() {
     	        
@@ -53,12 +45,30 @@
     	                $state.transitionTo( 'Home' );
     	            });
     	    };
+
+    	    self.register = function( user ) {
+    	        
+    	        LoginService.register( user )
+    	            .then( function( obj )) {
+    	            
+    	                self.username = obj.username;
+    	                self.id = obj.id;
+    	                self.status = "on";
+    	                
+    	                $state.transitionTo( 'Main' );
+    	            
+    	            });
+    	    };
     	    
     	    self.reset = function() {
     	    	
     	    	self.master = {};
     	    };
     	    
+            self.update = function( user ) {
+                
+                self.master = angular.copy( user );
+            };
     	});
 	
 })();

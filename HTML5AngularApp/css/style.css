@@ -72,7 +72,8 @@ button {
 }
 
 .current-screen {
-    width: 65%;    
+    width: 65%;
+    margin-left: 25%;
 }
 
 .app-screen {

@@ -6,6 +6,7 @@
             <input class="input login username" type="text"     ng-model="user.name" placeholder="username" /><br>
             <input class="input login password" type="password" ng-model="user.passwd" placeholder="password" /><br>
             <input class="input login submit"   type="submit"   placeholder="Login!" />
+            <input class="input login button"   type="button"   placeholder="Register" ng-click="login."/>
             <input ng-if="login.status=='on'" class="input login submit"   type="submit"   placeholder="Logout" />
         </form>
         

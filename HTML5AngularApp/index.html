@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/style.css">
 
         <!-- Load all the Angular components here, we assume they will load -->
-        <script src="//code.angularjs.org/1.4.7/angular.js"></script> 
+        <script src="//code.angularjs.org/1.4.7/angular.min.js"></script> 
         <script src="//code.angularjs.org/1.4.7/angular-resource.min.js"></script> 
         <script src="//angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>        
     </head>
@@ -57,8 +57,10 @@
                 </div>
             </div>
             
-            <div id="app-area" >
-               <aside class="sidebar" ng-controller="MenuController as sideBar">
+            <div id="app-area">
+                <h3>Routing with ui-router</h3>
+                Pulling in partials client side templating at run-time
+                <aside class="sidebar" ng-controller="MenuController as sideBar">
                     <ul>
                         <li ng-repeat="page in sideBar.content" class="menuitem"> 
                             <button ng-click="sideBar.setPage( page )">{{page}}</button>
@@ -66,14 +68,14 @@
                     </ul>
                 </aside>
 
-                <section class="current-screen" >
+                <div class="current-screen" >
                     <div id="screen" class="app-screen" >
         
                         <!-- UI Module View Routing dynamically loads partial views here -->
                         <div ui-view></div>
     
                     </div>
-                </section>
+                </div>
                 <div class='clear'></div>
             </div>            
             
