@@ -87,7 +87,7 @@
                       */ 
                         var response = obj.data;
                         self.id = response.id; 
-                        self.username = user.name;
+                        self.username = user.username;
                         
                         /*
                       * Then we craft some data and use our defered callback to let the
