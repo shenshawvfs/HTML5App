@@ -3,11 +3,15 @@
     <div id="login-server" class="dialog">
         <h3>Welcome! Please Login!</h3>
         <form ng-submit="login.authenticate(user)" ng-model-options="{debounce:500}">
-            <input class="input login username" type="text"     ng-model="user.name" placeholder="username" /><br>
-            <input class="input login password" type="password" ng-model="user.passwd" placeholder="password" /><br>
+            <input class="input login username" type="text"     placeholder="username" 
+                   ng-model="user.name" /><br />
+            <input class="input login password" type="password" placeholder="password" 
+                   ng-model="user.passwd" /><br>
             <input class="input login submit"   type="submit"   placeholder="Login!" />
-            <input class="input login button"   type="button"   placeholder="Register" ng-click="login."/>
-            <input ng-if="login.status=='on'" class="input login submit"   type="submit"   placeholder="Logout" />
+            <input class="input login button"   type="button"   placeholder="Register" 
+                   ng-click="login.register()"/>
+            <input class="input login submit"   type="submit"   placeholder="Logout" 
+                   ng-if="login.status=='on'" ng-click="login.logout()"/>
         </form>
         
         <div>
