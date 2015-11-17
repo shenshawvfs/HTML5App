@@ -19,7 +19,19 @@ class Server extends AJAXServer {
 
 		$response["id"] = password_hash( $passwd, PASSWORD_DEFAULT );
 		$response["error"] = 0;
-
+		
+		$data = array(
+			':id'        =>$response['id'],
+			':lastname'  =>$username,
+			':firstname' =>"",
+			':phone'     =>"555-555-5555",
+			':email'     =>$username . "@vfs.com",
+			':office'    =>"101",
+			':title'     =>""
+		);
+		$userTable = UserTable();
+		$userTable.create( $data );
+		
 		return json_encode( $response );
 	}
 }

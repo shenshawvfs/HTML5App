@@ -4,14 +4,20 @@ include_once 'Database.php';
 // Adapt to your Table
 class UsersTable {
 
+	private $params;
+	
+	function __construct( $data ) {
+		$this->params = $this->setParams( $data );
+	}
+	
 	function create( $data ){
 
 	    $params = $this->setParams( $data );
 	    $db = Database::connection();
-		$db->prepare("INSERT INTO users(id, lastname, firstname, phone, email, office, title)
-		  			              VALUES ( NULL, :lastname, :firstname, :phone, :email, :office, :title)");
-		if(!$db->execute( $params )) {
-			return $db->errorCode();
+		$sql = $db->prepare("INSERT INTO users(id, lastname, firstname, phone, email, office, title)
+		  			              VALUES ( NULL,  :lastname, :firstname, :phone, :email, :office, :title)");
+		if(!$sql->execute( $params )) {
+			return $sql->errorCode();
 		}
 
 		return true;
@@ -21,10 +27,10 @@ class UsersTable {
 	function readByEmail( $email ){
 
 		$db = Database::connection();
-		$db->prepare("SELECT * FROM users u WHERE u.email LIKE '%".trim($email)."%'");
-		$db->execute();
+		$sql = $db->prepare("SELECT * FROM users u WHERE u.email LIKE '%".trim($email)."%'");
+		$sql->execute();
 
-		$result = $db->fetchAll(\PDO::FETCH_OBJ);
+		$result = $sql->fetchAll(\PDO::FETCH_OBJ);
 		if (empty( $result ))
 		    $result[]["name"] = "No product found";
 
@@ -35,10 +41,10 @@ class UsersTable {
 	function readByID( $id ){
 
 		$db = Database::connection();
-		$db->prepare("SELECT * FROM users u where u.id=".$id);
-		$db->execute();
+		$sql = $db->prepare("SELECT * FROM users u where u.id=".$id);
+		$sql->execute();
 
-		$row = $db->fetch(\PDO::FETCH_OBJ);
+		$row = $sql->fetch(\PDO::FETCH_OBJ);
 		if (!isset( $row->id ))
 		    $row = "No product found";
 
@@ -49,7 +55,7 @@ class UsersTable {
 
 		$params = $this->setParams( $data );
 	    $db = Database::connection();
-		$db->prepare('UPDATE users
+		$sql = $db->prepare('UPDATE users
 		                  SET lastname = :lastname,
 		                      firstname = :firstname,
 		                      phone = :phone,
@@ -58,8 +64,8 @@ class UsersTable {
 		                      title = :title
 						  WHERE id = :id');
 
-		if (!$db->execute( $params ))
-			return $db->errorCode();
+		if (!$sql->execute( $params ))
+			return $sql->errorCode();
 
 		return true;
 
@@ -68,7 +74,7 @@ class UsersTable {
 	private function setParams( $data ) {
 
 	    $params = array(
-            ':id'        =>$data['id']
+            ':id'        =>$data['id'],
             ':lastname'  =>$data['lastname'],
             ':firstname' =>$data['firstname'],
             ':phone'     =>$data['phone'],
