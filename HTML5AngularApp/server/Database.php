@@ -10,7 +10,7 @@ class Database {
 	private  static $mysql_host = "localhost:3306";
 	private  static $mysql_user = "onsite_user";
 	private  static $mysql_pass = "onsite";
-	private  static $mysql_db = "test";
+	private  static $mysql_db = "onsite";
 
 
 	private function __construct() {} // block directly instantiating

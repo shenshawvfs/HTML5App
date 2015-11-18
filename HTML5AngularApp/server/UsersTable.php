@@ -1,23 +1,17 @@
 <?php
-include_once 'Database.php';
+include_once '../lib/Database.php';
 
 // Adapt to your Table
 class UsersTable {
 
-	private $params;
-	
-	function __construct( $data ) {
-		$this->params = $this->setParams( $data );
-	}
-	
 	function create( $data ){
 
 	    $params = $this->setParams( $data );
 	    $db = Database::connection();
 		$sql = $db->prepare("INSERT INTO users(id, lastname, firstname, phone, email, office, title)
-		  			              VALUES ( NULL,  :lastname, :firstname, :phone, :email, :office, :title)");
+		  			              VALUES ( NULL, :lastname, :firstname, :phone, :email, :office, :title)");
 		if(!$sql->execute( $params )) {
-			return $sql->errorCode();
+			return $db->errorCode();
 		}
 
 		return true;
@@ -56,13 +50,13 @@ class UsersTable {
 		$params = $this->setParams( $data );
 	    $db = Database::connection();
 		$sql = $db->prepare('UPDATE users
-		                  SET lastname = :lastname,
-		                      firstname = :firstname,
-		                      phone = :phone,
-					          email = :email,
-		                      office = :office,
-		                      title = :title
-						  WHERE id = :id');
+		                     SET lastname = :lastname,
+		                          firstname = :firstname,
+		                          phone = :phone,
+					               email = :email,
+		                          office = :office,
+		                          title = :title
+						      WHERE id = :id');
 
 		if (!$sql->execute( $params ))
 			return $sql->errorCode();
