@@ -10,7 +10,7 @@ class DatabaseTable {
 		$db = Database::connection();
 
 		$params = array(
-            ':id'             =>$data['id']
+            ':id'             =>$data['id'],
             ':name'           =>$data['name'],
 		    ':wholesale_price'=>$data['wholesale_price'],
 		    ':retail_price'   =>$data['retail_price'],
@@ -19,11 +19,11 @@ class DatabaseTable {
 		    ':id'             =>$data['id']
 		);
 
-		$db->prepare("INSERT INTO products(id, name, wholesale_price, retail_price, quantity, box_id)
+		$sql = $db->prepare("INSERT INTO products(id, name, wholesale_price, retail_price, quantity, box_id)
 		  			              VALUES ( NULL, :name, :wholesale_price, :retail_price, :quantity, :box_id)");
-		if(!$db->execute())
+		if(!$sql->execute())
 		{
-			return $db->errorCode();
+			return $sql->errorCode();
 		}
 
 		return true;
@@ -36,7 +36,7 @@ class DatabaseTable {
 		$db = Database::connection();
 
 		$params = array(
-            ':id'             =>$data['id']
+            ':id'             =>$data['id'],
             ':name'           =>$data['name'],
 		    ':wholesale_price'=>$data['wholesale_price'],
 		    ':retail_price'   =>$data['retail_price'],
@@ -44,30 +44,31 @@ class DatabaseTable {
 		    ':box_id'         =>$data['box_id'],
 		    ':id'             =>$data['id']
 		);
-		$db->prepare('UPDATE databasetable
-		                  SET name = :name,
-		                      wholesale_price = :wholesale_price,
-		                      retail_price = :retail_price,
-					          quantity = :quantity,
-		                      box_id = :box_id
-						  WHERE id= :id');
+		$sql = $db->prepare('UPDATE databasetable
+		                     SET name = :name,
+	                             wholesale_price = :wholesale_price,
+		                         retail_price = :retail_price,
+					             quantity = :quantity,
+		                         box_id = :box_id
+						     WHERE id= :id');
 
-		if (!$db->execute( $params )) {
+		if (!$sql->execute( $params )) {
 
-			return $db->errorCode();
+			return $sql->errorCode();
 		}
 
 		return true;
 
 	}
 
-	function findProductByName($name){
+	function findProductByName( $name ){
 
-		$handler = EntityManager::get()->prepare("SELECT * FROM products p where p.name LIKE '%".trim($name)."%'");
+		$db = Database::connection();
+		$sql = $db->prepare("SELECT * FROM products p where p.name LIKE '%" . trim($name) . "%'" );
 
-		$handler->execute();
+		$sql->execute();
 
-		$result = $handler->fetchAll(\PDO::FETCH_OBJ);
+		$result = $sql->fetchAll(\PDO::FETCH_OBJ);
 
 		if(empty($result)) $result[]["name"] = "No product found";
 
@@ -75,15 +76,16 @@ class DatabaseTable {
 
 	}
 
-	function findProductByID($id){
+	function findProductByID( $id ){
 
-		$handler = EntityManager::get()->prepare("SELECT * FROM products p where p.id=".$id);
+		$db = Database::connection();
+		$sql = $db->prepare("SELECT * FROM products p where p.id=" . $id );
 
-		$handler->execute();
+		$sql->execute();
 
-		$row = $handler->fetch(\PDO::FETCH_OBJ);
+		$row = $sql->fetch(\PDO::FETCH_OBJ);
 
-		if(!isset($row->id)) $row = "No product found";
+		if (!isset( $row->id )) $row = "No product found";
 
 		return $row;
 

@@ -5,20 +5,30 @@ date_default_timezone_set ("US/Pacific");
 
 class Database {
 
-	private static $instance; // stores the MySQL instance
+    // stores the MySQL instance
+	private static $instance;
 
 	private  static $mysql_host = "localhost:3306";
-	private  static $mysql_user = "onsite_user";
-	private  static $mysql_pass = "onsite";
-	private  static $mysql_db = "onsite";
 
+	// Edit these to match the db you created
+	private  static $mysql_user = "db_user";
+	private  static $mysql_pass = "db_pass";
+	private  static $mysql_db = "db_name";
 
-	private function __construct() {} // block directly instantiating
-	private function __clone() { } // block cloning of the object
+	// block directly instantiating and cloning of the object, there can be only one.
+	private function __construct() {}
+	private function __clone() { }
 
+	/**
+	 * @name connection
+	 * Establish a connection with a RDBMS instance
+	 * @return PDO
+	 */
 	public static function connection() {
+
 		// create the instance if it does not exist
 		if(!isset(self::$instance)) {
+
 			// the MYSQL_* constants should be set to or
 			//  replaced with your db connection details
 			try{
@@ -31,13 +41,17 @@ class Database {
 					                        	\PDO::ATTR_EMULATE_PREPARES => false
 					                        )
 		                    			);
-
-				//die(json_encode(array('outcome' => true)));
 			}
 			catch(PDOException $ex){
-				die(json_encode(array('outcome' => false, 'message' => 'Unable to connect', 'error' => $ex->errorInfo)));
+
+			    // Fail pseudo gracefully
+				die( json_encode( array( 'outcome' => false,
+				                         'message' => 'Unable to connect',
+				                         'error' => $ex->errorInfo )));
+
 			}
 		}
+
 		// return the instance
 		return self::$instance;
 	}
