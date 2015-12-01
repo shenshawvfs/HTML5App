@@ -7,7 +7,7 @@
 	 * 
 	 */
 
-	angular.module( 'app.services' )
+	angular.module('app.services')
 		.config( function( $httpProvider ) {
             /*
              * Could be done globally for the AppController
@@ -22,7 +22,7 @@
              */
             $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';            
         })
-		.service( 'LoginService', function( $http, $q, $httpParamSerializerJQLike ) {
+		.service('LoginService', function( $http, $q, $httpParamSerializerJQLike ) {
     	
             /** @memberOf LogonService.private */
             var local = {                             
@@ -116,7 +116,7 @@
                 
                 var clientCallback = $q.defer();
                 
-                $http.post( 'server/logout/', "" )
+                $http.post('server/logout/', "" )
                     .then( function( obj ) {
                         
                         var response = obj.data;
@@ -137,7 +137,7 @@
     	        var clientCallback = $q.defer();
     	        
     	        var params = $httpParamSerializerJQLike( user );
-    	        $http.post( "server/register/", params )       
+    	        $http.post("server/register/", params )       
     	        	.then( function( obj ) {
             	        //------------------------------------------------------------
             	    	// Handle the successful result of an AJAX request
