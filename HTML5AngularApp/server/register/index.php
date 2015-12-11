@@ -32,7 +32,7 @@ class Server extends AJAXServer {
 		    $response["error"] = 0;
 		}
 
-		return json_encode( $response );
+		return $response;
 	}
 }
 

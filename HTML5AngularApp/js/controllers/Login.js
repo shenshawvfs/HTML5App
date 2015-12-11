@@ -21,6 +21,7 @@
 		    self.id = "";    		
     		self.status = "off";
     		
+    		
     	    self.authenticate = function( user ) {
     	        
     	        LoginService.authenticate( user )

@@ -15,7 +15,7 @@ class Server extends AJAXServer {
 		// perhaps close the db connection
 		$response["error"] = 0;
 
-		return json_encode( $response );
+		return $response;
 	}
 }
 

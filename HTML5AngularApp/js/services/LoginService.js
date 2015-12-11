@@ -1,5 +1,5 @@
 (function() { // closure app.services 
-	/*
+	/**
 	 * Angular Services - AppService
 	 * 
 	 * @copyright: (C) 2014 Kibble Games Inc in cooperation with Vancouver Film School.  All Rights Reserved.
@@ -9,7 +9,7 @@
 
 	angular.module('app.services')
 		.config( function( $httpProvider ) {
-            /*
+            /**
              * Could be done globally for the AppController
              * Angular transmits data as application/json, 
              * 
