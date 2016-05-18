@@ -70,7 +70,7 @@ var App = (function() {
         };
         
         //  Finally, call the constructor to initialize this object instance.
-        self.init( opt1 );        
+        self.init( "hello" );        
     };
     
 	/*
