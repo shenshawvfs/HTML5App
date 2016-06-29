@@ -27,7 +27,8 @@ var App = (function() {
 	    
 	    var local = {
 	        // the local object contains all the private members used in this class	            
-            done: false
+            done:     false,
+            interval: null
 	    };
 	    
         // this aka self contains all the public members and methods we wish to expose
@@ -36,22 +37,32 @@ var App = (function() {
 	    
         self.init = function( option ) {       	
         	// Do some initialization of the member variables for the app
-            if (option !== undefined) {
-                
-                // Use it.
-            }
             
+        	// cleanest use of conditionals on optional params.
+        	var opt = (option == undefined ? null : option);
+        
+            // Use it.
             
         	// Create controllers to manage model objects and link them to DOM
             // view elements
             
             // Define the Event handlers for the app
+            $('#stop-button').on('click', function( event ) {
+            	
+            	// stop the main event loop if applicable
+            	window.clearInterval( local.interval );
+            	
+            });
     	}	
         
     	self.run = function() {
             // Run the app
-			local.updateData();			
-			local.refreshView();			
+    		local.interval = window.setInterval( function() {
+    			
+				local.updateData();			
+				local.refreshView();	
+				
+    		}, 1000/60 );
     	};    	
 
     	
