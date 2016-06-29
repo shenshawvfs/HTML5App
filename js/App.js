@@ -50,8 +50,8 @@ var App = (function() {
         
     	self.run = function() {
             // Run the app
-			updateData();			
-			refreshView();			
+			local.updateData();			
+			local.refreshView();			
     	};    	
 
     	
