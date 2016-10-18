@@ -1,9 +1,9 @@
 /**
  * App Singleton MAIN 
  * 
- * @copyright: (C) 2014 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
+ * @copyright: (C) 2016 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
  * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
- * @version: 1.1.0 
+ * @version: 2.1.0 ES6 Compatible
  * 
  * @summary: Framework Singleton Class to contain a web app
  * 
@@ -21,89 +21,90 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-var App = (function() {
+'use strict';
 
-	function AppSingleton( opt1 ) {
+class App {
+
+    // constructor for new App's, note use of initializer in constructor parameters
+	constructor( opt1 = null ) {
 	    
-	    var local = {
-	        // the local object contains all the private members used in this class	            
+	    /*
+	     * Save our private stuff in a WeakMap. This collects all the 
+	     * private data we don't want others to see into an object, then 
+	     * only using the "this" object can we access the private data.
+	     * 
+	     * It makes closures and their cryptic syntax a thing of the past.
+	     * 
+	     */
+	    this.__private__ = new WeakMap();
+	    let privateProperties = {
+	        
             done:     false,
             interval: null
 	    };
-	    
-        // this aka self contains all the public members and methods we wish to expose
-	    var self = this;
-	    
-	    
-        self.init = function( option ) {       	
-        	// Do some initialization of the member variables for the app
-            
-        	// cleanest use of conditionals on optional params.
-        	var opt = (option == undefined ? null : option);
+	    this.__private__.set( this, privateProperties );	
+    	/*
+    	 * Finally, save the private properties in the map.  Note that while other objects
+    	 * and inspectors may "see" our private data, other code has no way 
+    	 * to retrieve or access it without the correct "this" object.
+    	 */ 
         
-            // Use it.
+        // Define the Event handlers for the app
+        $('#stop-button').on('click', ( event ) => {
+            // Note use of the "fat arrow" function, preserving the "this" reference
+            let m = privateProperties; 
             
-        	// Create controllers to manage model objects and link them to DOM
-            // view elements
-            
-            // Define the Event handlers for the app
-            $('#stop-button').on('click', function( event ) {
-            	
-            	// stop the main event loop if applicable
-            	window.clearInterval( local.interval );
-            	
-            });
-    	}	
+        	// stop the main event loop if applicable
+        	window.clearInterval( m.interval );
+        });
         
-    	self.run = function() {
-            // Run the app
-    		local.interval = window.setInterval( function() {
-    			
-				local.updateData();			
-				local.refreshView();	
-				
-    		}, 1000/60 );
-    	};    	
+        
+	}	
+
+    /*
+     *  Sample getter, can be used like a property  so m_.propertyName
+     *  Now this is public so its possible others can use this to get to 
+     *  our private data; however it enhances readability over embedding the 
+     *  guts of the getter in every method.
+     *    
+     */
+    get m_() { return this.__private__.get( this ); }
+	
+	
+    mUpdateData() {
+        // Update the app/simulation model
+        // is the app finished running?
+        let m = this.__private__.get( this );
+        m.done = true;
+    }
+
+    
+    mRefreshView() {
+        // Refresh the view - canvas and dom elements       
+        let m = this.__private__.get( this );
+    }
+    
+
+    run() {
+        // Run the app
+        let m = this.__private__.get( this );
+        
+		m.interval = window.setInterval( () => {
+			
+			this.mUpdateData();			
+			this.mRefreshView();	
+			
+		}, 1000/60 );
+	}    	
 
     	
-    	/** @memberOf AppSingleton.private */
-        local.updateData = function() {
-            // Update the app/simulation model
-        	// is the app finished running?
-        	done = true;
-        };
+}
     
-        
-        /** @memberOf AppSingleton.private */
-        local.refreshView = function() {
-            // Refresh the view - canvas and dom elements
-        	
-        };
-        
-        //  Finally, call the constructor to initialize this object instance.
-        self.init( "hello" );        
-    };
-    
-	/*
-	 * Note we create an object to pass back, a singleton. 
-	 * To use this pattern to create a typical object that you create multiple
-	 * instances of all we need to change is:
-	 * 
-	 *    AppSingleton -->  AppClass
-	 *    
-	 *    return new AppSingleton(); --> return AppClass;
-	 *    
-	 */ 
-	return new AppSingleton(); 
-	
-})();  // Run the unnamed function and assign the results to app for use.
-
-
 // ===================================================================
 // MAIN
 $(document).ready( function() {
 
-    App.init();
-    App.run();
+    let app = new App();
+    app.run();
 
 });
