@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 
+    <!-- 
     HTML5 App Template
 
     Copyright 2014-2016, Vancouver Film School, in cooperation with Kibble Games Inc.
@@ -19,60 +19,59 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
- -->
+    -->
 <html>
     <head>
         <title>HTML5 App</title>
-
         <!-- Base style sheet add your default styles here-->
-        <link rel='stylesheet' href='css/style.css'>
         
+        <link rel='stylesheet' href='css/style.css'>
         <!-- Uncomment the following line to enable media queries -->
         <!-- <link rel='stylesheet' href='css/media.css'> -->
+                
+        <!-- Add local styles here -->
+        <style type="text/css"></style>
+        
+        
+        <!-- Link in 3rd party libraries here -->
+        <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+    </head>
 
-        <!-- This is the key CDN to pull jQuery from -->
-        <!-- To operate offline we may want these to load from a local source -->
-        <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-
-        <!-- Local styles -->
-        <style type='text/css'>
-        </style>
-
-   </head>
-   
-   <!-- The Structure of your app is here - Box model blocks of area -->
-   <body>
-   		<div id='app-frame'>
-   		
-  		    <!-- navigation and menuing system -->
+    <!-- The Structure of your app is here - Box model blocks of area -->
+    <body>
+        <div id='app-frame'>
+        
+            <!-- navigation and menuing system -->
             <nav id='title' class='header container'>
-            	<h3 class='content'>Nav Menu Area</h3>
+                <h3 class='content'>Nav Menu Area</h3>
             </nav>
-    
+            
             <!-- Sidebar if applicable -->
             <aside id='sidebar' class='main container'>
-            	<div id='sidebar-data' class='content'>
-            		<h4>Sidebar Area</h4>
+                <div id='sidebar-data' class='content'>
+                    <h4>Sidebar Area</h4>
                 </div>
             </aside>
-    
+            
             <!-- Your main app area -->
             <section id='wrapper' class='main container'>
                 <div id='app-area' class='content'>
-                
                     <h3>My main app area here</h3>
                     <!-- Add your HTML5 tags here to structure your app's UI -->
-                    
+        
+                    <div id='results-area'><!-- Dynamic updates here --></div>
+                    <div id='button-container'>
+                        <button id='stop-button'>Stop</button>
+                    </div>
                 </div>
             </section>
-		</div>
+        </div>
 
         <!-- 
-        Load your app core/amin here, while not strictly W3C compliant it guarentees 
-        that the basic HTML gets loaded and you have something to start 
-        debugging if any of your code fails.
-         -->
-        <script src='js/App.js'></script>
-
+             Load your app core here, while not strictly W3C compliant it guarentees 
+             that the basic HTML gets loaded and you have something to start 
+             debugging if any of your code fails.
+             -->
+        <script src='scripts/App.js' type="text/javascript"></script>
     </body>
 </html>

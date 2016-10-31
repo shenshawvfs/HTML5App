@@ -23,11 +23,14 @@
  */
 'use strict';
 
+const SIXTY_FPS = 1000 / 60;
+
+var appInstance = null;
+
 class App {
 
     // constructor for new App's, note use of initializer in constructor parameters
-	constructor( opt1 = null ) {
-	    
+	constructor( opt1 = null ) {	    
 	    /*
 	     * Save our private stuff in a WeakMap. This collects all the 
 	     * private data we don't want others to see into an object, then 
@@ -36,10 +39,16 @@ class App {
 	     * It makes closures and their cryptic syntax a thing of the past.
 	     * 
 	     */
+	    if (appInstance != null)
+	        return appInstance;
+	    
+	    appInstance = this;
+	    
 	    this.__private__ = new WeakMap();
 	    let privateProperties = {
 	        
             done:     false,
+            counter:  0,
             interval: null
 	    };
 	    this.__private__.set( this, privateProperties );	
@@ -50,15 +59,19 @@ class App {
     	 */ 
         
         // Define the Event handlers for the app
-        $('#stop-button').on('click', ( event ) => {
-            // Note use of the "fat arrow" function, preserving the "this" reference
-            let m = privateProperties; 
-            
-        	// stop the main event loop if applicable
-        	window.clearInterval( m.interval );
-        });
+	    document.querySelector('#stop-button')
+	        .addEventListener('click', ( event ) => {
+
+                // Note use of the "fat arrow" function, preserving the "this" reference
+                let m = this.__private__.get( this ); 
+                
+                m.counter = 0;
+                
+            	// stop the main event loop if applicable
+            	window.clearInterval( m.interval );
+            });
         
-        
+        return appInstance
 	}	
 
     /*
@@ -68,7 +81,7 @@ class App {
      *  guts of the getter in every method.
      *    
      */
-    get m_() { return this.__private__.get( this ); }
+    get _m() { return this.__private__.get( this ); }
 	
 	
     mUpdateData() {
@@ -82,6 +95,13 @@ class App {
     mRefreshView() {
         // Refresh the view - canvas and dom elements       
         let m = this.__private__.get( this );
+        
+        m.counter++;
+        if (m.counter > 1000)
+            m.counter = 0;
+        
+        // Use backtick quotes to get template literals to work
+        document.querySelector('#results-area').innerHTML = `Counting ${m.counter}`;
     }
     
 
@@ -94,7 +114,7 @@ class App {
 			this.mUpdateData();			
 			this.mRefreshView();	
 			
-		}, 1000/60 );
+		}, SIXTY_FPS );
 	}    	
 
     	
@@ -102,7 +122,7 @@ class App {
     
 // ===================================================================
 // MAIN
-$(document).ready( function() {
+document.addEventListener('DOMContentLoaded', ( event ) => {
 
     let app = new App();
     app.run();

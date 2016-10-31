@@ -29,7 +29,7 @@ body,div {
     color: #000;
     background-color: grey;
     font-family: Helvetica, Arial;
-    background-color: #999;
+    background-color: #EEE;
     position:  relative;
 }
 
@@ -66,8 +66,8 @@ a {
 
 
 .main {
-    position: relative;
-    display:  inline-block;
+    /* position: relative; */
+    display: inline-table;
     height:   768px;
     z-index:  100;
 }
@@ -85,8 +85,8 @@ a {
 
 #wrapper {
     margin: 0em auto;
-    width: 1024px;
-    height: 768px;                
+    width: 88%;
+    height: 768px;
 }
 
     #app-area {
@@ -127,3 +127,16 @@ a {
 
 
 .debug-menu {}
+
+#button-container {
+    bottom: 1em;
+    left: 50%;
+    position: absolute;
+    display: inline;
+}
+
+button {
+    padding: .5em 1em;
+    font-weight:  700;
+    font-size: 24px;
+}
