@@ -39,32 +39,36 @@
 
     <!-- The Structure of your app is here - Box model blocks of area -->
     <body>
-        <div id='app-frame'>
+        <div id='app-frame' >
         
             <!-- navigation and menuing system -->
             <nav id='title' class='header container'>
                 <h3 class='content'>Nav Menu Area</h3>
             </nav>
             
-            <!-- Sidebar if applicable -->
-            <aside id='sidebar' class='main container'>
-                <div id='sidebar-data' class='content'>
-                    <h4>Sidebar Area</h4>
-                </div>
-            </aside>
+            <div id='app-container' class='flex-container'>
             
-            <!-- Your main app area -->
-            <section id='wrapper' class='main container'>
-                <div id='app-area' class='content'>
-                    <h3>My main app area here</h3>
-                    <!-- Add your HTML5 tags here to structure your app's UI -->
-        
-                    <div id='results-area'><!-- Dynamic updates here --></div>
-                    <div id='button-container'>
-                        <button id='stop-button'>Stop</button>
+                <!-- Sidebar if applicable -->
+                <aside id='sidebar' class='main container flex-item'>
+                    <div id='sidebar-data' class='content'>
+                        <h4>Sidebar Area</h4>
                     </div>
-                </div>
-            </section>
+                </aside>
+                
+                <!-- Your main app area -->
+                <section id='wrapper' class='main container flex-item'>
+                    <div id='app-area' class='content'>
+                        <h3>My main app area here</h3>
+                        <!-- Add your HTML5 tags here to structure your app's UI -->
+            
+                        <div id='results-area'><!-- Dynamic updates here --></div>
+                        <div id='button-container'>
+                            <button id='stop-button'>Stop</button>
+                        </div>
+                    </div>
+                </section>
+                
+            </div>
         </div>
 
         <!-- 

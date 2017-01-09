@@ -26,7 +26,6 @@
 const SIXTY_FPS = 1000 / 60;
 
 var appInstance = null;
-
 class App {
 
     // constructor for new App's, note use of initializer in constructor parameters
