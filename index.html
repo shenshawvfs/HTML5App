@@ -1,81 +1,84 @@
 <!DOCTYPE html>
-    <!-- 
-    HTML5 App Template
+<!--
+HTML5 App Template
 
-    Copyright 2014-2016, Vancouver Film School, in cooperation with Kibble Games Inc.
+Copyright 2014-2018, Vancouver Film School, in cooperation with Kibble Games Inc.
 
-    Author: Scott Henshaw
+Author: Scott Henshaw
 
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
-	
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-	
-	You should have received a copy of the GNU General Public License
-	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-    
-    -->
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
 <html>
     <head>
         <title>HTML5 App</title>
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
         <!-- Base style sheet add your default styles here-->
-        
+
         <link rel='stylesheet' href='css/style.css'>
         <!-- Uncomment the following line to enable media queries -->
         <!-- <link rel='stylesheet' href='css/media.css'> -->
-                
+
         <!-- Add local styles here -->
         <style type="text/css"></style>
-        
-        
-        <!-- Link in 3rd party libraries here -->
-        <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
     </head>
 
     <!-- The Structure of your app is here - Box model blocks of area -->
     <body>
         <div id='app-frame' >
-        
+
             <!-- navigation and menuing system -->
             <nav id='title' class='header container'>
                 <h3 class='content'>Nav Menu Area</h3>
             </nav>
-            
+
             <div id='app-container' class='flex-container'>
-            
+
                 <!-- Sidebar if applicable -->
                 <aside id='sidebar' class='main container flex-item'>
                     <div id='sidebar-data' class='content'>
                         <h4>Sidebar Area</h4>
                     </div>
                 </aside>
-                
+
                 <!-- Your main app area -->
                 <section id='wrapper' class='main container flex-item'>
                     <div id='app-area' class='content'>
                         <h3>My main app area here</h3>
                         <!-- Add your HTML5 tags here to structure your app's UI -->
-            
+
                         <div id='results-area'><!-- Dynamic updates here --></div>
                         <div id='button-container'>
                             <button id='stop-button'>Stop</button>
                         </div>
                     </div>
                 </section>
-                
+
             </div>
         </div>
 
-        <!-- 
-             Load your app core here, while not strictly W3C compliant it guarentees 
-             that the basic HTML gets loaded and you have something to start 
+        <div id="scripts">
+            <!-- Link in 3rd party libraries here -->
+            <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script> -->
+
+            <!--
+             Load your app core here, while not strictly W3C compliant it guarentees
+             that the basic HTML gets loaded and you have something to start
              debugging if any of your code fails.
-             -->
-        <script src='scripts/App.js' type="text/javascript"></script>
+           -->
+            <script type="text/javascript" src='scripts/app.js' defer></script>
+            <script type="text/javascript" src='scripts/main.js' defer></script>
+        </div>
     </body>
 </html>
