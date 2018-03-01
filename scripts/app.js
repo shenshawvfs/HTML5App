@@ -2,8 +2,10 @@
  * App Singleton MAIN 
  * 
  * @copyright: (C) 2016-2018 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
- * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
- * @version: 2.1.0 ES6 Compatible
+ * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
+ * Collaborator: Clinton Ramonida {@link mailto:cramonida@vfs.com}
+ * 
+ * @version: 2.2.0 ES2017+ 
  * 
  * @summary: Framework Singleton Class to contain a web app
  * 
@@ -42,6 +44,13 @@ export class App {
         /*
         *  Define the Event handlers for the app
         */
+       //a start button to run the app
+       document.querySelector('#start-button')            
+            .addEventListener('click', ( event ) => {
+                this.run();
+            }
+        );
+
 	    document.querySelector('#stop-button')            
 	        .addEventListener('click', ( event ) => {
 	            // Note use of the "fat arrow" function, preserving the "this" reference
@@ -54,7 +63,7 @@ export class App {
                 
             	// stop the main event loop if applicable
             	window.clearInterval( my.interval );
-            });
+        });
 	}	
 
 	
