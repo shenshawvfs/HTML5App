@@ -1,0 +1,37 @@
+ /**
+ * Media Query CSS Styles for VFS Demo App
+ *
+ * @Copyright 2018, Vancouver Film School, In cooperation with Scott Henshaw.
+ * @Author: Clinton Ramonida
+ * 
+ */
+
+ /* BASIC MOBILE APP LAYOUT USING GRID */
+ @media only screen and (max-width: 812px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    /* make our font size bigger for a smaller mobile device screen */
+    body {
+        background-color: rgb(194, 193, 193);
+        font-size: 25px;
+    }
+
+    /* GRID FRAME/CONTAINER */
+    .grid-frame {
+        display: grid;
+        grid-gap: 5px;
+        grid-template: 
+            [row1-start] "navbar" 50px [row1-end] 
+            [row2-start] "headbar" 200px [row2-end] 
+            [row3-start] "thecontent" 1000px [row3-end] 
+            [row4-start] "sidecontent" 150px [row4-end] 
+            [row5-start] "footcontent" 100px [row5-end];
+    }
+
+    .spacer{
+        height: 150px;
+    }
+}

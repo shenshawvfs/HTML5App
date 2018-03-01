@@ -5,6 +5,7 @@ HTML5 App Template
 Copyright 2014-2018, Vancouver Film School, in cooperation with Kibble Games Inc.
 
 Author: Scott Henshaw
+Contributor: Clinton Ramonida
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,64 +22,121 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 -->
 <html>
+
     <head>
         <title>HTML5 App</title>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+        
         <!-- Base style sheet add your default styles here-->
-
         <link rel='stylesheet' href='css/style.css'>
+
         <!-- Uncomment the following line to enable media queries -->
-        <!-- <link rel='stylesheet' href='css/media.css'> -->
+        <link rel='stylesheet' href='css/media.css'>
 
         <!-- Add local styles here -->
         <style type="text/css"></style>
     </head>
 
-    <!-- The Structure of your app is here - Box model blocks of area -->
+    <!--
+            Application's Structure Area 
+        All the "wrapper" in a form of CSS GRID Layout.
+        Each grid "area" has a "container" in a form of flexbox. 
+    -->
     <body>
-        <div id='app-frame' >
+        <!-- Grid Layout -->
+        <div id="main-wrapper" class="grid-frame">
 
-            <!-- navigation and menuing system -->
-            <nav id='title' class='header container'>
-                <h3 class='content'>Nav Menu Area</h3>
+            <!-- Nav Bar -->
+            <nav id="navigation-wrapper" class="grid-nav area">
+                <div id="menu-container" class="menu flexbox">
+
+                    <div class="flexitem">
+                        <ul>
+                            <li><a href="">Nav 1</a></li>
+                            <li><a href="">Nav 2</a></li>
+                            <li><a href="">Nav 3</a></li>
+                        </ul>
+                    </div>
+
+                </div>
             </nav>
 
-            <div id='app-container' class='flex-container'>
+            <!-- Header -->
+            <header id="header-wrapper" class="grid-header area">
+                <div id="header-container" class="header flexbox">
 
-                <!-- Sidebar if applicable -->
-                <aside id='sidebar' class='main container flex-item'>
-                    <div id='sidebar-data' class='content'>
-                        <h4>Sidebar Area</h4>
+                    <div class="flexitem">
+                        <h1>HEADER</h1>
                     </div>
-                </aside>
 
-                <!-- Your main app area -->
-                <section id='wrapper' class='main container flex-item'>
-                    <div id='app-area' class='content'>
-                        <h3>My main app area here</h3>
-                        <!-- Add your HTML5 tags here to structure your app's UI -->
+                </div>
+            </header>
 
-                        <div id='results-area'><!-- Dynamic updates here --></div>
-                        <div id='button-container'>
-                            <button id='stop-button'>Stop</button>
+            <!-- The Content -->
+            <main id="content-wrapper" class="grid-content area">
+                <div id="content-container" class="content flexbox">
+
+                    <div class="flexitem">
+                        <h2>THE MAIN CONTENT</h2>
+                    </div>
+
+                    <div class="spacer flexitem"></div>
+
+                    <!-- Add your HTML5 tags here to structure your app's UI -->
+
+                    <div id="results-gridbox" class="grid-frame-child">
+
+                        <div id="results-area" class="grid-results area-child">
+                            <!-- Dynamic updates here -->
+                            <h3>Results Area: Dynamic Updates here!</h3>
                         </div>
-                    </div>
-                </section>
 
-            </div>
+                        <div class="grid-buttons area-child">
+                            <div id="button-container" class="buttons flexbox">
+                                <button id="start-button" class="btn flexitem">START</button>
+                                <button id="stop-button" class="btn flexitem">STOP</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <aside id="sidebar-wrapper" class="grid-side area">
+                <div id="sidebar-container" class="sidebar flexbox">
+                    <div class="flexitem">
+                        <h2>MY SIDEBAR</h2>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- The Footer -->
+            <footer id="footer-wrapper" class="grid-foot area">
+                <div id="footer-container" class="footer flexbox">
+                    <div class="flexitem">
+                        <h1>FOOTER</h1>
+                    </div>
+                </div>
+            </footer>
+
         </div>
 
+
+        <!-- Scripts section (JS) -->
         <div id="scripts">
             <!-- Link in 3rd party libraries here -->
             <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script> -->
 
             <!--
-             Load your app core here, while not strictly W3C compliant it guarentees
-             that the basic HTML gets loaded and you have something to start
-             debugging if any of your code fails.
-           -->
-            <script type="text/javascript" src='scripts/app.js' defer></script>
-            <script type="text/javascript" src='scripts/main.js' defer></script>
+                Load your app core here, while not strictly W3C compliant it guarentees
+                that the basic HTML gets loaded and you have something to start
+                debugging if any of your code fails.
+            -->
+
+            <script type="module" src='scripts/main.js' defer></script>
         </div>
     </body>
+
 </html>

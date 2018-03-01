@@ -3,7 +3,9 @@
  * 
  * @copyright: (C) 2016-2018 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
  * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
- * @version: 2.1.0 ES6 Compatible
+ * Collaborator: Clinton Ramonida {@link mailto:cramonida@vfs.com}
+ * 
+ * @version: 2.2.0 ES2017+ using Module
  * 
  * @summary: Framework Singleton Class to contain a web app
  *
@@ -12,11 +14,14 @@
 'use strict';
 
 // ===================================================================
+//Import all the necessary scripts here
+import { App } from './app.js';
+
 // MAIN
 document.addEventListener('DOMContentLoaded', ( event ) => {
 
     let app = new App();
-    app.run();
+    //app.run(); //calling this line on a start button inside the app.js
 
 });
 
