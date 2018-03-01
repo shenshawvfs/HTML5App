@@ -78,6 +78,10 @@ body {
     grid-row: 1/4;
 }
 
+#results-area{
+    position: absolute;
+}
+
 .grid-buttons{
     grid-area: buttons;
     grid-column: 2/8;
