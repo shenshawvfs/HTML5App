@@ -24,23 +24,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <html>
 
     <head>
+        <!-- PLEASE CHANGE to the name of your WebApp -->
         <title>HTML5 App</title>
+
+        <!-- Web App Icon -->
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
         
         <!-- Base style sheet add your default styles here-->
         <link rel='stylesheet' href='css/style.css'>
 
-        <!-- Uncomment the following line to enable media queries -->
+        <!-- Media Queries -->
         <link rel='stylesheet' href='css/media.css'>
 
         <!-- Add local styles here -->
         <style type="text/css"></style>
     </head>
 
-    <!--
-            Application's Structure Area 
-        All the "wrapper" in a form of CSS GRID Layout.
-        Each grid "area" has a "container" in a form of flexbox. 
+    <!--        ****PLEASE READ****
+            Application's Structure Details: 
+    All the "wrapper" is in a form of CSS GRID Layout.
+    Each grid "area" has a "container" in a form of "flexbox".
+    And each flexbox "container" contains "flexitems".  
     -->
     <body>
         <!-- Grid Layout -->
@@ -76,14 +80,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <main id="content-wrapper" class="grid-content area">
                 <div id="content-container" class="content flexbox">
 
+                    <!-- Add your HTML5 tags here to structure your app's UI -->
+
                     <div class="flexitem">
                         <h2>THE MAIN CONTENT</h2>
                     </div>
 
+                    <!-- Added a spacer between(main content header and results gridbox) two flex items -->
                     <div class="spacer flexitem"></div>
-
-                    <!-- Add your HTML5 tags here to structure your app's UI -->
-
+                    
+                    <!--       ****PLEASE READ****
+                        This is div called a "gridbox" which is a combination of grid and flexbox.
+                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
+                        Its a flex item because its inside a flexbox container (content-container). 
+                     -->
                     <div id="results-gridbox" class="grid-frame-child">
 
                         <div class="grid-results area-child">
@@ -92,6 +102,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                         </div>
 
                         <div class="grid-buttons area-child">
+                            <!-- A flexbox container inside a grid area -->
                             <div id="button-container" class="buttons flexbox">
                                 <button id="start-button" class="btn flexitem">START</button>
                                 <button id="stop-button" class="btn flexitem">STOP</button>
@@ -134,7 +145,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 that the basic HTML gets loaded and you have something to start
                 debugging if any of your code fails.
             -->
-
             <script type="module" src='scripts/main.js' defer></script>
         </div>
     </body>

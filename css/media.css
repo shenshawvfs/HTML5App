@@ -7,15 +7,18 @@
  */
 
  /* BASIC MOBILE APP LAYOUT USING GRID */
- @media only screen and (max-width: 812px) {
-    * {
-        margin: 0;
-        padding: 0;
-    }
+ /* 
+    (max-width: XXXpx) means: 
+        -max = "desktop first design" (everything inside would be changes to mobile screen)
+        -min = "mobile first design" (everything inside would be changes to desktop screen)
 
-    /* make our font size bigger for a smaller mobile device screen */
+    Since we're using our main style.css as a "Desktop first design"
+    Only put the changes here for whatever you want to change in your mobile screen.
+*/
+ @media only screen and (max-width: 812px) {
+     
+    /* Since we have a smaller screen, we need bigger fonts */
     body {
-        background-color: rgb(194, 193, 193);
         font-size: 25px;
     }
 
@@ -31,6 +34,7 @@
             [row5-start] "footcontent" 100px [row5-end];
     }
 
+    /* Since we have a smaller screen, we need better spacing */
     .spacer{
         height: 150px;
     }
