@@ -19,11 +19,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+** If you are using this as part of an assignment and do not edit this header
+** I will deduct marks!
+
 -->
 <html>
     <head>
         <title>HTML5 App</title>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
         <!-- Base style sheet add your default styles here-->
 
         <link rel='stylesheet' href='css/style.css'>
@@ -76,9 +79,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
              Load your app core here, while not strictly W3C compliant it guarentees
              that the basic HTML gets loaded and you have something to start
              debugging if any of your code fails.
-           -->
-            <script type="text/javascript" src='scripts/app.js' defer></script>
-            <script type="text/javascript" src='scripts/main.js' defer></script>
+            -->
+            <script type="module" src='scripts/main.mjs' defer></script>
         </div>
     </body>
 </html>
