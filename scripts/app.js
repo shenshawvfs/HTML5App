@@ -27,7 +27,7 @@ export class App {
 	     * will understand that we mean this to be private data.
 	     * 
 	     */
-	    this._privateData = {
+	    this.myPrivateMembers = {
 	        
             done:     false,
             counter:  0,
@@ -79,7 +79,7 @@ export class App {
      *  we can pseudo hide private data if we want.
      *    
      */
-    get my() { return this._privateData; }
+    get my() { return this.myPrivateMembers; }
 	
 	
     update() {

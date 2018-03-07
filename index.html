@@ -20,26 +20,24 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+** If you are using this as part of an assignment and do not edit this header
+** I will deduct marks!
+
 -->
 <html>
 
     <head>
         <!-- PLEASE CHANGE to the name of your WebApp -->
         <title>HTML5 App</title>
-
-        <!-- Web App Icon -->
         <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-        
+
         <!-- Base style sheet add your default styles here-->
         <link rel='stylesheet' href='css/style.css'>
-
-        <!-- Media Queries -->
-        <link rel='stylesheet' href='css/media.css'>
+        <link rel='stylesheet' href='css/media.css'>        <!-- Media Queries -->
 
         <!-- Add local styles here -->
         <style type="text/css"></style>
     </head>
-
     <!--        ****PLEASE READ****
             Application's Structure Details: 
     All the "wrapper" is in a form of CSS GRID Layout.
@@ -49,11 +47,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <body>
         <!-- Grid Layout -->
         <div id="main-wrapper" class="grid-frame">
-
             <!-- Nav Bar -->
             <nav id="navigation-wrapper" class="grid-nav area">
                 <div id="menu-container" class="menu flexbox">
-
                     <div class="flexitem">
                         <ul>
                             <li><a href="">Nav 1</a></li>
@@ -61,34 +57,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                             <li><a href="">Nav 3</a></li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
-
             <!-- Header -->
             <header id="header-wrapper" class="grid-header area">
                 <div id="header-container" class="header flexbox">
-
                     <div class="flexitem">
                         <h1>HEADER</h1>
                     </div>
-
                 </div>
             </header>
-
             <!-- The Content -->
             <main id="content-wrapper" class="grid-content area">
                 <div id="content-container" class="content flexbox">
-
                     <!-- Add your HTML5 tags here to structure your app's UI -->
-
                     <div class="flexitem">
                         <h2>THE MAIN CONTENT</h2>
                     </div>
-
                     <!-- Added a spacer between(main content header and results gridbox) two flex items -->
                     <div class="spacer flexitem"></div>
-                    
+                  
                     <!--       ****PLEASE READ****
                         This is div called a "gridbox" which is a combination of grid and flexbox.
                         Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
@@ -141,11 +129,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script> -->
 
             <!--
-                Load your app core here, while not strictly W3C compliant it guarentees
-                that the basic HTML gets loaded and you have something to start
-                debugging if any of your code fails.
+             Load your app core here, while not strictly W3C compliant it guarentees
+             that the basic HTML gets loaded and you have something to start
+             debugging if any of your code fails.
             -->
-            <script type="module" src='scripts/main.js' defer></script>
+            <script type="module" src='scripts/main.mjs'></script>
         </div>
     </body>
 
