@@ -20,11 +20,7 @@ body {
 .grid-frame {
     display: grid;
     grid-gap: 5px;
-    grid-template: 
-    [row1-start] "navbar navbar navbar navbar" 50px [row1-end]
-    [row2-start] "headbar headbar headbar headbar" 150px [row2-end]
-    [row3-start] "sidecontent thecontent thecontent thecontent" 800px [row3-end]
-    [row4-start] "footcontent footcontent footcontent footcontent" 80px [row4-end];
+    grid-template: [row1-start] "navbar navbar navbar navbar" 50px [row1-end]      [row2-start] "headbar headbar headbar headbar" 100px [row2-end]      [row3-start] "sidecontent thecontent thecontent thecontent" 720px [row3-end]      [row4-start] "footcontent footcontent footcontent footcontent" 80px [row4-end];
 }
 
 /* GRID AREAS/ITEMS (CHILDREN) */
@@ -61,7 +57,7 @@ body {
 .grid-frame-child {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, 150px [row-start]);
+    grid-template-rows: repeat(4, 100px [row-start]);
 }
 
 /* GRID AREA FOR "GRID CONTAINER CHILD" */
