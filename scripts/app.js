@@ -1,16 +1,7 @@
 /**
- * App Singleton MAIN 
- * 
- * @copyright: (C) 2016-2018 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
+ * @copyright: (C)2016-2019 Kibble Online Inc., in cooperation with Vancouver Film School
  * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
- * Collaborator: Clinton Ramonida {@link mailto:cramonida@vfs.com}
- * 
- * @version: 2.2.0 ES2017+ 
- * 
- * @summary: Framework Singleton Class to contain a web app
- * 
  */
-
 'use strict';
 
 const SIXTY_FPS = 1000 / 60;
@@ -27,8 +18,7 @@ export class App {
 	     * will understand that we mean this to be private data.
 	     * 
 	     */
-	    this.myPrivateMembers = {
-	        
+	    this.__private__ = {	        
             done:     false,
             counter:  0,
             interval: null
@@ -46,18 +36,18 @@ export class App {
         */
        //a start button to run the app
        document.querySelector('#start-button')            
-            .addEventListener('click', ( event ) => {
+            .addEventListener('click', event => {
                 this.run();
             }
         );
 
 	    document.querySelector('#stop-button')            
-	        .addEventListener('click', ( event ) => {
+	        .addEventListener('click', event => {
 	            // Note use of the "fat arrow" function, preserving the "this" reference
 	            
 	            // variable scoped to the block, not visible outside the {} its defined within
 	            // OK this is not very useful, lets clean up...
-                let my = this.my; 
+                let my = this.__private__; 
                 
                 my.counter = 0;
                 
@@ -65,7 +55,6 @@ export class App {
             	window.clearInterval( my.interval );
         });
 	}	
-
 	
     /*
      *  Sample getter, can be used like a property  so my.propertyName
@@ -79,29 +68,30 @@ export class App {
      *  we can pseudo hide private data if we want.
      *    
      */
-    get my() { return this.myPrivateMembers; }
-	
+    get done() { return this.__private__.done; }	
+    set done( value ) { this.__private__.done = value; }	
 	
     update() {
         // Update the app/model/simulation here
-        this.my.done = true;
+        this.done = true;
     }
-
     
     render() {
         // Refresh the view - canvas and dom elements, etc from here.             
-        this.my.counter++;
-        if (this.my.counter > 1000)
-            this.my.counter = 0;
+        let my = this.__private__;
+
+        my.counter++;
+        if (my.counter > 1000)
+            my.counter = 0;
         
         // Use backtick quotes to get template literals to work
-        document.querySelector('#results-area').innerHTML = `Counting ${this.my.counter}`;
+        document.querySelector('#results-area').innerHTML = `Counting ${my.counter}`;
     }
     
-
     run() {
         // Entry point, create a nw app, then tell it to run itself
-		this.my.interval = window.setInterval( () => {
+		let my = this.__private__;
+        my.interval = window.setInterval( () => {
 			
 			this.update();			
 			this.render();	
@@ -109,7 +99,6 @@ export class App {
 		}, SIXTY_FPS );
 	}    	
 }
-
 
 /**
  * @license:
