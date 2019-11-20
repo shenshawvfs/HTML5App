@@ -1,15 +1,16 @@
 /**
  * @copyright: (C)2016-2019 Kibble Online Inc in cooperation with Vancouver Film School.
- * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
+ * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
  */
 'use strict';
 
+import Loader from './serviceWorkerLoader.js';
 import App from './app.js';
 
 // MAIN
 document.addEventListener('DOMContentLoaded', event => {
 
-    // Don't instatiate the script 
+    // Don't instatiate the script
     const app = new App();
 });
 

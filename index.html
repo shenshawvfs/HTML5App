@@ -12,28 +12,33 @@ Contributor: Clinton Ramonida
     <head>
         <!-- PLEASE CHANGE to the name of your WebApp -->
         <title>HTML5 App</title>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+        <link rel="shortcut icon" href="./images/app-512.png" type="image/x-icon">
+        <link rel="manifest" href="./manifest.json">
 
-        <!-- Base style sheet add your default styles here-->
-        <link rel='stylesheet' href='css/style_base.css'>
-        <link rel='stylesheet' href='css/style.css'>
-        <link rel='stylesheet' href='css/media.css'>        <!-- Media Queries -->
+        <!-- Base style sheet add your default styles here - rel=preload is faster, but must reset this.rel -->
+        <link rel='preload' href="css/style_base.css" as="style" media="all" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel='preload' href='css/style.css' as="style" media="all" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="stylesheet" href="css/media.css" as="style" media="screen and (max-width:768px)">  <!-- Media Queries -->
 
         <!-- Link in 3rd party libraries here -->
-        <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script> -->
+        <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer></script> -->
 
         <!-- Add local styles here -->
-        <style type="text/css"></style>
+        <style type="text/css">
+            /* this is here to preload faster beor ethe first paint */
+            html, body { background-color:blue; }
+            .lazyload, .content-wrapper { display:none; }
+        </style>
     </head>
     <!--        ****PLEASE READ****
-            Application's Structure Details: 
+            Application's Structure Details:
     All the "wrapper" is in a form of CSS GRID Layout.
     Each grid "area" has a "container" in a form of "flexbox".
-    And each flexbox "container" contains "flexitems".  
+    And each flexbox "container" contains "flexitems".
     -->
     <body>
         <!-- Grid Layout -->
-        <div id="main-wrapper" class="grid-frame">
+        <div id="main-wrapper" class="grid-frame lazyload">
             <!-- Nav Bar -->
             <nav id="navigation-wrapper" class="grid-nav area">
                 <div id="menu-container" class="menu flexbox">
@@ -63,11 +68,11 @@ Contributor: Clinton Ramonida
                     </div>
                     <!-- Added a spacer between(main content header and results gridbox) two flex items -->
                     <div class="spacer flexitem"></div>
-                  
+
                     <!--       ****PLEASE READ****
                         This is div called a "gridbox" which is a combination of grid and flexbox.
-                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
-                        Its a flex item because its inside a flexbox container (content-container). 
+                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper")
+                        Its a flex item because its inside a flexbox container (content-container).
                      -->
                     <div id="results-gridbox" class="grid-frame-child">
 
@@ -114,12 +119,12 @@ Contributor: Clinton Ramonida
             that the basic HTML gets loaded and you have something to start
             debugging if any of your code fails.
         -->
-        <script type="module" src='scripts/main.js'></script>
+        <script type="module" src='scripts/index.js'></script>
     </body>
 
 </html>
 <!--
-License Agreement 
+License Agreement
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
