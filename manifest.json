@@ -1,0 +1,21 @@
+{
+    "name": "HTML5 App Template",
+    "short_name": "HTML5App",
+    "icons": [
+        {
+            "src": "./images/app-512.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/vfs_logo.png",
+            "sizes": "256x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "http://127.0.0.1:8080",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#FFFFFF",
+    "theme_color": "#FFFFFF"
+}

@@ -1,27 +1,18 @@
 /**
- * App Singleton MAIN 
- * 
- * @copyright: (C) 2016-2018 Kibble Games Inc in cooperation with Vancouver Film School. All Rights Reserved. 
- * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com} 
- * Collaborator: Clinton Ramonida {@link mailto:cramonida@vfs.com}
- * 
- * @version: 2.2.0 ES2017+ using Module
- * 
- * @summary: Framework Singleton Class to contain a web app
- *
+ * @copyright: (C)2016-2019 Kibble Online Inc in cooperation with Vancouver Film School.
+ * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
  */
 'use strict';
 
-import { App } from './app.js';
-
+import Loader from './scripts/serviceWorkerLoader.js';
+import App from './scripts/app.js';
 
 // MAIN
-document.addEventListener( 'DOMContentLoaded', ( event ) => {
+document.addEventListener('DOMContentLoaded', event => {
 
+    // Don't instatiate the script
     const app = new App();
-    app.run();
 });
-
 
 /** @licence:
  *  This program is free software: you can redistribute it and/or modify

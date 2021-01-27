@@ -2,47 +2,39 @@
 <!--
 HTML5 App Template
 
-Copyright 2014-2018, Vancouver Film School, in cooperation with Kibble Games Inc.
+Copyright (C)2014-2019, Kibble Online Inc., in cooperation with Vancouver Film School.
 
 Author: Scott Henshaw
 Contributor: Clinton Ramonida
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-** If you are using this as part of an assignment and do not edit this header
-** I will deduct marks!
-
 -->
 <html>
 
     <head>
         <!-- PLEASE CHANGE to the name of your WebApp -->
         <title>HTML5 App</title>
-        <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+        <link rel="shortcut icon" href="./images/app-512.png" type="image/x-icon">
+        <link rel="manifest" href="./manifest.json">
 
-        <!-- Base style sheet add your default styles here-->
-        <link rel='stylesheet' href='css/style.css'>
-        <link rel='stylesheet' href='css/media.css'>        <!-- Media Queries -->
+        <!-- Base style sheet add your default styles here - rel=preload is faster, but must reset this.rel -->
+        <link href="css/style_base.css" media="all" rel='stylesheet'>
+        <link href='css/style.css' media="all" rel='stylesheet'>
+        <link href="css/mobile.css" rel="stylesheet">  <!-- Media Queries -->
+
+        <!-- Link in 3rd party libraries here -->
+        <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer></script> -->
 
         <!-- Add local styles here -->
-        <style type="text/css"></style>
+        <style type="text/css">
+            /* this is here to preload faster beor ethe first paint */
+            html, body { background-color:blue; }
+            .lazyload, .content-wrapper { display:none; }
+        </style>
     </head>
     <!--        ****PLEASE READ****
-            Application's Structure Details: 
+            Application's Structure Details:
     All the "wrapper" is in a form of CSS GRID Layout.
     Each grid "area" has a "container" in a form of "flexbox".
-    And each flexbox "container" contains "flexitems".  
+    And each flexbox "container" contains "flexitems".
     -->
     <body>
         <!-- Grid Layout -->
@@ -76,11 +68,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     </div>
                     <!-- Added a spacer between(main content header and results gridbox) two flex items -->
                     <div class="spacer flexitem"></div>
-                  
+
                     <!--       ****PLEASE READ****
                         This is div called a "gridbox" which is a combination of grid and flexbox.
-                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper") 
-                        Its a flex item because its inside a flexbox container (content-container). 
+                        Its a grid container, but is also a child of grid because its inside of a grid frame ("main wrapper")
+                        Its a flex item because its inside a flexbox container (content-container).
                      -->
                     <div id="results-gridbox" class="grid-frame-child">
 
@@ -121,20 +113,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             </footer>
 
         </div>
-
-
         <!-- Scripts section (JS) -->
-        <div id="scripts">
-            <!-- Link in 3rd party libraries here -->
-            <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' defer></script> -->
-
-            <!--
-             Load your app core here, while not strictly W3C compliant it guarentees
-             that the basic HTML gets loaded and you have something to start
-             debugging if any of your code fails.
-            -->
-            <script type="module" src='scripts/main.mjs'></script>
-        </div>
+        <!--
+            Load your app core here, while not strictly W3C compliant it guarentees
+            that the basic HTML gets loaded and you have something to start
+            debugging if any of your code fails.
+        -->
+        <script type="module" src='./index.js'></script>
     </body>
 
 </html>
+<!--
+License Agreement
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+** If you are using this as part of an assignment and do not edit this header
+** I will deduct marks!
+
+-->
