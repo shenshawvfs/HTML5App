@@ -1,0 +1,14 @@
+{
+    "name": "html5base",
+    "version": "1.0.0",
+    "description": "HTML5 AJAX App with NodeJS server",
+    "main": "index.js",
+    "scripts": {
+        "server": "live-server",
+        "client": "live-server"
+    },
+    "author": "Kibble Online Inc",
+    "license": "MIT",
+    "dependencies": {
+    }
+}
