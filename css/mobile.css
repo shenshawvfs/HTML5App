@@ -215,7 +215,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
   /* Large screen, retina, stuff to override above media query */
     .logo {
         background: url(logo@2x.png) no-repeat 0 0;
-        background-size: 120px;    /* Equal to normal logo width */
+        background-size: 120px;   /* Equal to normal logo width */
    }
 
 }
