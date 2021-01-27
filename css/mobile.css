@@ -1,0 +1,221 @@
+/*
+ * platform specific styles
+ */
+
+/* iOS */
+.ios {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* note apple’s support for this extends to custom types */
+    font: -apple-system-body;
+    font: -apple-system-headline
+}
+
+/* iOS STYLES */
+.ios header {
+    font-family: 'HelveticaNeue', Arial, sans-serif;
+    font-size: 17px;
+    background-color: #f7f7f7;
+    padding: 0 88px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ios header button {
+    color: rgb(21, 125, 251);
+    padding-left: 24px;
+}
+
+.ios header button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    border: 3px solid rgb(21, 125, 251);
+    border-right: none;
+    border-top: none;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+}
+
+.ios header button:hover {
+    color: rgba(21, 125, 251, 0.3);
+}
+
+.ios header button:hover:before {
+    border-color: rgba(21, 125, 251, 0.3);
+}
+
+.ios header h1 {
+    font-weight: bold;
+    font: -apple-system-headline;
+    line-height: inherit;
+    text-align: center;
+}
+
+/* Android */
+.android {
+    font-family: 'RobotoRegular', 'Droid Sans', sans-serif;
+}
+
+.android header {
+    font-family: 'RobotoRegular', 'Droid Sans', Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 0 60px;
+    border-bottom: 2px solid #ddd;
+}
+
+.android header button {
+    padding-left: 10px;
+    width: 54px;
+    background: url(http://upload.wikimedia.org/wikipedia/de/2/27/SmashingLogo.png) no-repeat 15px 4px;
+    background-size: 36px 36px;
+    text-indent: -8000px;
+}
+
+.android header button:hover {
+    background-color: #ddd;
+}
+
+.android header button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    left: 2px;
+    width: 10px;
+    height: 16px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAJdnBBZwAAACAAAAAgAIf6nJ0AAAGdSURBVEjHpdXfThNBFIDx3+wuSMUKKrGmYKISfAffP/EZBBMuGhoCIRCl/O/ueNG1F3RmoeFcTSZzvvPt2TO7vDDCM04U81WjWRYQ/PBeg+DBT5PHB4rOZHYMFCqlNSOTxYJVR3q0Yq/VLp07TPl2GfDFhlpA8Ns94vMBUc+uujU5NU6l5wEBe3rz9v0S0w0vMunRps9t/crIuZCqnwNE7FnVoHDtIK2fAwQMDE0FUenAbX5eqszu91a5cmaU008bBNHQlqkgaOyrdcQi4P/4zNp35LSr/iIg4Ju3alHp1r4noniUHvV9baWDQ1fd9fNvYRaNJ6NcSL6z4mM7gRuO3Xdf+TKx99fQKhqvVI6XBQS1xlAtaGy4cNWFSBkEE1vW2+/Aa+OuNqYBjTvb7arvxkXeoczsT2y2H5No09h0OUDAtW0B0ZrCSc4hZxDc6Pkwb+WZmzQiB4BLOyqz29FzlG5lHhA8KA3UglrftT8phy4Alz5Za6fyjbFmEdH1CEGtti0qROumzpYDzPrwTk8tqvWduE+JdscTP9cXxz8u5YF32IlaaQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMS0wNy0wMVQxMzoxMDoyNS0wNzowMDPfgNMAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTEtMDctMDFUMTM6MTA6MjUtMDc6MDBCgjhvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==') no-repeat -2px 0;
+    background-size: 17px 17px;
+}
+
+.android header h1 {
+    font-size: 19px;
+    color: #444;
+}
+
+
+/* Windows Phone */
+.windows {
+    font-family: 'Segoe UI', Segoe, Tahoma, Geneva, sans-serif;
+}
+
+.wp header {
+    font-family: 'Segoe UI', 'Lucida Grande', Verdana, Arial, sans-serif;
+    background-color: #000;
+    height: 70px;
+    color: #fff;
+    line-height: normal;
+    padding-left: 5px;
+}
+
+.wp header button {
+    position: static;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.wp header h1 {
+    font-size: 35px;
+    line-height: 32px;
+    text-transform: lowercase;
+}
+
+
+/* Normal-resolution CSS */
+.logo {
+   width: 120px;
+   background: url(logo.png) no-repeat 0 0;
+}
+
+@media only screen and (min-width: 320px) {
+
+    /* Small screen, non-retina */
+    body { font-size:12px; }
+    #app-container { max-width: 300px; }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 320px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (                min-resolution: 192dpi) and (min-width: 320px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 320px) {
+
+    /* Small screen, retina, stuff to override above media query */
+    body { font-size:14px; }
+}
+
+@media only screen and (min-width: 700px) {
+
+    /* Medium screen, non-retina */
+    body { font-size:14px; }
+    #app-container { max-width: 600px; }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 700px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (                min-resolution: 192dpi) and (min-width: 700px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 700px) {
+
+  /* Medium screen, retina, stuff to override above media query */
+/* Since we have a smaller screen, we need bigger fonts */
+    body {
+        font-size: 25px;
+    }
+
+    /* GRID FRAME/CONTAINER */
+    .grid-frame {
+        display: grid;
+        grid-gap: 5px;
+        grid-template:
+            [row1-start] "navbar" 50px [row1-end]
+            [row2-start] "headbar" 200px [row2-end]
+            [row3-start] "thecontent" 1000px [row3-end]
+            [row4-start] "sidecontent" 150px [row4-end]
+            [row5-start] "footcontent" 100px [row5-end];
+    }
+
+    /* Since we have a smaller screen, we need better spacing */
+    .spacer{
+        height: 150px;
+    }
+
+    #results-area{
+        height: 300px;
+        width: 230px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+
+  /* Large screen, non-retina */
+  #app-container { max-width: 1200px; }
+
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1300px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (                min-resolution: 192dpi) and (min-width: 1300px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 1300px) {
+
+  /* Large screen, retina, stuff to override above media query */
+    .logo {
+        background: url(logo@2x.png) no-repeat 0 0;
+        background-size: 120px;    /* Equal to normal logo width */
+   }
+
+}

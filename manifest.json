@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": "//apps.pgwm.vfs.local/~shenshaw/GitHubTemplates/HTML5App/",
+    "start_url": "http://127.0.0.1:8080",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#FFFFFF",

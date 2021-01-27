@@ -4,8 +4,8 @@
  */
 'use strict';
 
-import Loader from './serviceWorkerLoader.js';
-import App from './app.js';
+import Loader from './scripts/serviceWorkerLoader.js';
+import App from './scripts/app.js';
 
 // MAIN
 document.addEventListener('DOMContentLoaded', event => {

@@ -1,5 +1,5 @@
 /**
- * @copyright: (C)2016-2019 Kibble Online Inc., in cooperation with Vancouver Film School
+ * @copyright: (C)2016-2021 Kibble Online Inc., in cooperation with Vancouver Film School
  * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
  */
 'use strict';
@@ -22,7 +22,9 @@ export default class App {
             done:     false,
             counter:  0,
             interval: null
-	    };
+	    }
+
+        this._hiddenValue = 42;  // another method to say "ehy this is private, hands off"
 
 	    /*
 	     * Delete this variable, its just here to show a variable scoped
@@ -37,9 +39,9 @@ export default class App {
        //a start button to run the app
        document.querySelector('#start-button')
             .addEventListener('click', event => {
+
                 this.run();
-            }
-        );
+            });
 
 	    document.querySelector('#stop-button')
 	        .addEventListener('click', event => {
@@ -53,8 +55,9 @@ export default class App {
 
             	// stop the main event loop if applicable
             	window.clearInterval( my.interval );
-        });
+            })
 	}
+
 
     /*
      *  Sample getter, can be used like a property  so my.propertyName
@@ -76,6 +79,7 @@ export default class App {
         this.done = true;
     }
 
+
     render() {
         // Refresh the view - canvas and dom elements, etc from here.
         let my = this.__private__;
@@ -88,10 +92,11 @@ export default class App {
         document.querySelector('#results-area').innerHTML = `Counting ${my.counter}`;
     }
 
+
     run() {
         // Entry point, create a nw app, then tell it to run itself
 		let my = this.__private__;
-        my.interval = window.setInterval( () => {
+        my.interval = window.setInterval( deltaTime => {
 
 			this.update();
 			this.render();

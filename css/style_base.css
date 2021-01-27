@@ -1,215 +1,219 @@
-/**
- * CSS Styles for VFS Demo App
+/*
+ * CSS Styles Base - Copyright 2020, Vancouver Film School
  *
- * @Copyright (C)2014-2019, Kibble Online Inc., In cooperation with Vancouver Film School
- * @author: Scott Henshaw
- * @Contributor: Clinton Ramonida
  */
 
-/* DEFAULTS */
-* {
-    margin: 0;
-    padding: 0;
-}
+/* Clear defaults to start */
 
+/* Box sizing rules */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Remove default padding */
+ul[class], ol[class] { padding: 0; }
+
+/* Remove default margin */
+body, h1, h2, h3, h4, p, blockquote, ul[class], ol[class], li, dl, dd, figure, figcaption { margin: 0; }
+
+/* Set core body defaults */
 body {
-    background-color: rgb(194, 193, 193);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
 }
 
-.lazyload, .content-container{
-    display: block !important;
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class], ol[class] { list-style: none; }
+
+/* A elements that don't have a class get default styles */
+a:not([class]) { text-decoration-skip-ink: auto; }
+
+/* Make images easier to work with */
+img { max-width: 100%; display: block; }
+
+/* Natural flow and rhythm in articles by default */
+article > * + * { margin-top: 1em; }
+
+/* Inherit fonts for inputs and buttons */
+input, button, textarea, select { font: inherit; }
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* GRID FRAME/CONTAINER (PARENT) */
-.grid-frame {
-    display: grid;
-    grid-gap: 5px;
-    grid-template: [row1-start] "navbar navbar navbar navbar" 50px [row1-end]      [row2-start] "headbar headbar headbar headbar" 100px [row2-end]      [row3-start] "sidecontent thecontent thecontent thecontent" 720px [row3-end]      [row4-start] "footcontent footcontent footcontent footcontent" 80px [row4-end];
-}
 
-/* GRID AREAS/ITEMS (CHILDREN) */
-.area {
-    border-style: solid;
-    border-width: 3px;
-    border-color: black;
-    border-radius: 5px;
-}
+/* Add Styles for a grey bland teaching world */
 
-.grid-header {
-    grid-area: headbar;
-}
-
-.grid-nav {
-    grid-area: navbar;
-}
-
-.grid-content {
-    grid-area: thecontent;
-    margin: 5px;
-}
-
-.grid-side {
-    grid-area: sidecontent;
-    margin: 5px;
-}
-
-.grid-foot {
-    grid-area: footcontent;
-}
-
-/* GRID CONTAINER CHILD (CHILD BUT A CONTAINER) */
-.grid-frame-child {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(4, 100px [row-start]);
-}
-
-/* GRID AREA FOR "GRID CONTAINER CHILD" */
-.area-child{
-    border-style: solid;
-    border-width: 3px;
-    border-color: gray;
-    border-radius: 5px;
-}
-
-.grid-results{
-    grid-area: results;
-    grid-column: 2/8;
-    grid-row: 1/4;
-}
-
-#results-area{
-    position: absolute;
-}
-
-.grid-buttons{
-    grid-area: buttons;
-    grid-column: 2/8;
-    grid-row: 4/5;
-}
-
-/* FLEX CONTAINER (PARENT) */
-.flexbox {
-    display: flex;
-    background-color: rgb(241, 244, 247);
+body, html {
+    background: #242527;
+    border: none;
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
     height: 100%;
-}
-
-/* navigation bar */
-
-.menu{
-    background-color: #333;
-}
-
-ul {
-    display: flex;
-    justify-content: flex-start;
-    list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-
+    box-sizing: border-box;
 }
 
-li {
-    float: left;
+body, div, ul {
+    margin:0;
+    padding:0;
+    border:none;
+    color:#fff;
 }
 
-li a {
-    display: block;
+button {
+    border-radius: 2px;
+    font-weight: 700;
+    /* min-width:  20em; */
+    padding: 0.5em;
+}
+
+form {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    /* font-size: 150%; */
+}
+input {height: 1.4em;font-weight:  700;font-size: 1.2em;}
+
+.debug {
+    border:1px dashed red;
+    z-index: 6000;
 }
 
-li a:hover {
-    background-color: #111;
+.clear { clear: both; }
+
+.list-block {
+    list-style: none;
+    display: flex;
+    width: 100%;
 }
 
-/* header */
-.header {
-    flex-direction: column;
-    justify-content: center;
+.list-block li {
+    flex-grow: 1;
 }
 
-/* content */
-.content {
-    flex-direction: column;
-}
-
-/* sidebar */
-.sidebar {
-    flex-direction: column;
-}
-
-/* footer */
-.footer {
-    flex-direction: column;
-    justify-content: center;
-}
-
-.buttons {
-    justify-content: center;
-    align-items: center;
-}
-
-/* FLEX ITEMS (CHILDREN) */
-.flexitem{
-    align-self: center;
-}
-
-.spacer{
-    height: 80px;
-}
-
-.btn{
-    background-color: white;
-    color: black;
-    border: 2px solid black; /* Black */
-    height: 40px;
-    width: 80px;
+.menuitem {
+    list-style-type: none;
     margin: 2px;
 }
 
-.btn:hover {
-    background-color: #555555;
-    color: white;
+.menuitem button {
+    min-width: 5em;
 }
 
-h1 {
-    border-style: solid;
-    border-width: 3px;
-    border-color: black;
+.dialog {
+    box-shadow: 3px 3px 13px black;
+    margin: 0 auto;
+    padding: 1em;
+    width: 50%;
 }
 
-h2 {
-    border-style: solid;
-    border-width: 3px;
-    border-color: royalblue;
-    margin: 3px;
+.app-container {
+    margin: 0 auto;
+    min-height: 720px;
+    position: relative;
 }
 
-h3{ /* not a flex item */
-    margin: 5px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rosybrown;
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 5em 15% 60% 15% 6em;
+    grid-template-rows: 1em 10% 55% 10em 2em;
+}
+    .grid-gutter-left {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    .grid-sidebar-left {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    .grid-column-main {
+        grid-column-start: 3;
+        grid-column-end: 4;
+    }
+
+    .grid-column-head {
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    .grid-sidebar-right {
+        grid-column-start: 4;
+        grid-column-end: 5;
+    }
+
+    .grid-gutter-right {
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    .grid-row-top {
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .grid-row-head {
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .grid-row-main {
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    .grid-row-tail {
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+    .grid-row-foot {
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+
+.flex-container, .flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:none;
+    justify-content: center;
+
+    margin: 0 auto;
+    margin-top: 1%;
 }
 
- /**
- *  @license:
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+
+    .sidebar-item {
+        /* should live withing a flex box */
+        /* width: 10%; */
+        flex-grow: 1;
+    }
+
+    .uiview-item {
+        /* should live withing a flex box */
+        display:  flex;
+        flex-grow: 5;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        min-width: 83%;
+    }
+
+    .sidebar-right {
+        /* should live withing a flex box */
+        width: 15%;
+    }
+
+.border {
+    padding: 2px;
+    border: 4px solid black;
+}
+
+.bevel {
+    background-color: cornflowerblue;
+    border-top: 3px solid lightskyblue;
+    border-left: 3px solid lightskyblue;
+    border-right: 3px solid darkblue;
+    border-bottom: 3px solid darkblue;
+}
