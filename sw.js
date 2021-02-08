@@ -19,9 +19,7 @@ const BASE_CACHE_FILES = [
     '/css/media.css',
     '/manifest.json',
     '/images/vfs_logo.png',
-    '/scripts/index.js',
-    '/static/about',
-    '/privacy'
+    '/index.js'
 ];
 const OFFLINE_CACHE_FILES = [
     '/offline/'
