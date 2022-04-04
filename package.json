@@ -1,6 +1,6 @@
 {
     "name": "html5base",
-    "version": "1.0.0",
+    "version": "1.0.22",
     "description": "HTML5 AJAX App with NodeJS server",
     "main": "index.js",
     "type": "module",
