@@ -9,6 +9,8 @@ Modern browsers continue to evolve and extend the basic functionality and as of 
 
 This HTML5 App also uses CSS3 Grid Layouts with Flexbox.
 
+![Screenshot](screenshot.png)
+
 ____
 ## Contents:
 - All the "wrapper" is in a form of CSS GRID Layout.
