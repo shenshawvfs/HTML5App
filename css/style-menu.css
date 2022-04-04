@@ -1,6 +1,7 @@
 /* @copyright 2014-2022, Scott Henshaw, Vancouver Film School */
 /* Flexbox menus */
 .menu {
+    background-color: var(--light);
     display: flex;
     justify-content: flex-start;
     text-align: left;
@@ -21,6 +22,7 @@
         border: none;
         width: 100%;
         text-align:left;
+        text-shadow: black 1px 1px;
     }
 
     .dropdown:hover .dropbtn {

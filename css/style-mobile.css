@@ -217,5 +217,4 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
         background: url("../images/vfs_logo.png") no-repeat 0 0;
         background-size: 240px;   /* Equal to normal logo width */
    }
-
 }

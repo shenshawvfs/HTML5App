@@ -13,26 +13,26 @@ h1, h2, h3 {
 
 h2, h3 { border: 2px solid black; }
 
-/* header */
-header {
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* content */
-main {
-    flex-direction: column;
-}
-
-/* sidebar */
 aside {
-    flex-direction: column;
+    background-color: antiquewhite;
+    color:#222222;
 }
 
-/* footer */
-footer {
-    flex-direction: column;
-    justify-content: center;
+/* Override part of the grid for this app */
+.grid-column-main { grid-column-end: 7; }
+
+.app {
+    background-color: gray;
+}
+
+.content {
+    background-color: #222222;
+}
+
+.results {
+    background-color:cadetblue;
+    font-size: 18px;
+    text-shadow: black 1px 1px;
 }
 
 .button {
