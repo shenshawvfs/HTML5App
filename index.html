@@ -16,9 +16,11 @@ Contributor: Clinton Ramonida
         <link rel="manifest" href="./manifest.json">
 
         <!-- Base style sheet add your default styles here - rel=preload is faster, but must reset this.rel -->
-        <!-- <link href="css/style_base.css" media="all" rel='stylesheet'> -->
-        <!-- <link href='css/style.css' media="all" rel='stylesheet'> -->
-        <!-- <link href="css/mobile.css" rel="stylesheet">  Media Queries -->
+        <link rel="stylesheet" href="css/style-base.css" media="all">
+        <link rel="stylesheet" href="css/style-grid.css" media="all">
+        <link rel="stylesheet" href="css/style-menu.css" media="all">
+        <link rel="stylesheet" href='css/style.css' media="all">
+        <!-- <link rel="stylesheet" href="css/style-mobile.css">  Media Queries -->
 
         <!-- Link in 3rd party libraries here -->
         <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer></script> -->
@@ -39,16 +41,39 @@ Contributor: Clinton Ramonida
         <!-- Grid Layout -->
         <div id="main-wrapper" class="grid-frame">
             <!-- Nav Bar -->
-            <nav id="navigation-wrapper" class="grid-nav area">
-                <div id="menu-container" class="menu flexbox">
-                    <div class="flexitem">
-                        <ul>
-                            <li><a href="">Nav 1</a></li>
-                            <li><a href="">Nav 2</a></li>
-                            <li><a href="">Nav 3</a></li>
+            <nav class="container">
+                <ul class="menu">
+                    <li class="dropdown">
+                        <button class="dropbtn">File</button>
+                        <ul class="dropdown-content">
+                            <li class="menu-item">New</li>
+                            <li class="menu-item">Open</li>
+                            <li class="menu-item">Save</li>
+                            <li class="menu-item">Save As</li>
+                            <li class="menu-item">Export</li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn">Edit</button>
+                        <ul class="dropdown-content">
+                            <li class="menu-item">Undo</li>
+                            <li class="menu-item">Redo</li>
+                            <li class="menu-item">Cut</li>
+                            <li class="menu-item">Copy</li>
+                            <li class="menu-item">Paste</li>
+                            <li class="menu-item">Delete</li>
+                            <li class="menu-item">Select All</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn">Prefabs</button>
+                        <ul class="dropdown-content">
+                            <li class="menu-item">New</li>
+                            <li class="menu-item">Delete</li>
+                            <li class="menu-item">Save</li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
             <!-- Header -->
             <header id="header-wrapper" class="grid-header area">

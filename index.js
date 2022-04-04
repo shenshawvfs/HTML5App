@@ -4,10 +4,6 @@
  */
 'use strict';
 
-import './css/style_base.css';
-import './css/style.css';
-import './css/mobile.css';
-
 import Loader from './scripts/serviceWorkerLoader.js';
 import App from './scripts/app.js';
 

@@ -2,19 +2,10 @@
  * CSS Styles for Apps based on this template - add your styles here
  * CSS Styles for VFS Demo App
  *
- * @Copyright 2014-2015, Vancouver Film School, In cooperation with Kibble Games Inc.
+ * @Copyright 2014-2022, Vancouver Film School, In cooperation with Kibble Games Inc.
  * @author: Scott Henshaw
  * @Contributor: Clinton Ramonida
  */
-
-/* DEFAULTS */
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body { background-color: rgb(194, 193, 193); }
-
 h1, h2, h3 {
     margin: 0.2em;
     padding: 0.25em;
@@ -22,70 +13,31 @@ h1, h2, h3 {
 
 h2, h3 { border: 2px solid black; }
 
-/* navigation bar */
-.menu { background-color: #333; }
-ul {
-    display: flex;
-    justify-content: flex-start;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-
-    font-weight: 700;
-    font-size: 16px;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: grey;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
 /* header */
-.header {
+header {
     flex-direction: column;
     justify-content: center;
 }
 
 /* content */
-.content {
+main {
     flex-direction: column;
 }
 
 /* sidebar */
-.sidebar {
+aside {
     flex-direction: column;
 }
 
 /* footer */
-.footer {
+footer {
     flex-direction: column;
     justify-content: center;
 }
 
-.buttons {
+.button {
     justify-content: center;
     align-items: center;
-}
-
-/* FLEX ITEMS (CHILDREN) */
-.flexitem {
-    align-self: center;
-}
-
-.spacer {
-    height: 80px;
 }
 
 .btn {
@@ -101,7 +53,6 @@ li a:hover {
     background-color: #555555;
     color: white;
 }
-
 
  /**
  *  @license:
