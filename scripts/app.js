@@ -1,22 +1,21 @@
 /**
- * @copyright: (C)2016-2021 Kibble Online Inc., in cooperation with Vancouver Film School
+ * @copyright: (C)2016-2022 Kibble Online Inc., in cooperation with Vancouver Film School
  * @author: Scott Henshaw {@link mailto:shenshaw@vfs.com}
  */
 'use strict';
 
-const SIXTY_FPS = 1000 / 60;
-
 export default class App {
 
-    // constructor for new App's, note use of initializer in constructor parameters
+    #_hiddenValue; // THE ES2022 method to say "ehy this is private, hands off"
+
 	constructor( opt1 = null ) {
-	    /*
+        // constructor for new App's, note use of initializer in constructor parameters
+	    /**
 	     * use of this. reference in the constructor tells us the attributes
 	     * defined are public.  All class members are.
 	     *
 	     * convention says if we prefix the name with an underscore, other devs
 	     * will understand that we mean this to be private data.
-	     *
 	     */
 	    this.__private__ = {
             done:     false,
@@ -24,7 +23,7 @@ export default class App {
             interval: null
 	    }
 
-        this._hiddenValue = 42;  // another method to say "ehy this is private, hands off"
+        this.#_hiddenValue = 42;
 
 	    /*
 	     * Delete this variable, its just here to show a variable scoped
@@ -59,8 +58,9 @@ export default class App {
 	}
 
 
-    /*
-     *  Sample getter, can be used like a property  so my.propertyName
+
+    /**
+     *  Sample getters, can be used like a property  so my.propertyName
      *
      *  Now this is public so its possible others can use this to get to
      *  our private data; however it enhances readability over embedding the
@@ -73,6 +73,14 @@ export default class App {
      */
     get done() { return this.__private__.done; }
     set done( value ) { this.__private__.done = value; }
+
+    static get CONST() {
+        // Cute trick to tie constants to the class, access App.CONST.FPS
+        return {
+            FPS: 1000 / 60,
+        }
+    }
+
 
     update() {
         // Update the app/model/simulation here
@@ -101,8 +109,16 @@ export default class App {
 			this.update();
 			this.render();
 
-		}, SIXTY_FPS );
+		}, App.CONST.FPS );
 	}
+
+    /** @note:
+     *  ES2022 private methods can be declared, prefixed with the #
+     *  And users of this class cannot see or use these methods
+     */
+    #_somePrivateMethod( params = true ) {
+        
+    }
 }
 
 /**

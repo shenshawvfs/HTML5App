@@ -3,12 +3,23 @@
     "version": "1.0.0",
     "description": "HTML5 AJAX App with NodeJS server",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-        "server": "live-server",
-        "client": "live-server"
+        "debug": "live-server",
+        "test": "webpack --mode production && cd dist && http-server",
+        "build": "webpack --mode production"
     },
     "author": "Kibble Online Inc",
     "license": "MIT",
     "dependencies": {
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^5.0.2",
+        "file-loader": "^6.2.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.21.2",
+        "workbox-webpack-plugin": "^6.1.0"
+    },
+    "devDependencies": {
+        "html-webpack-plugin": "^5.0.0"
     }
 }

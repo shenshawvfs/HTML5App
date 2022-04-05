@@ -72,7 +72,7 @@
 .android header button {
     padding-left: 10px;
     width: 54px;
-    background: url(http://upload.wikimedia.org/wikipedia/de/2/27/SmashingLogo.png) no-repeat 15px 4px;
+    background: url("../images/app-512.png") no-repeat 15px 4px;
     background-size: 36px 36px;
     text-indent: -8000px;
 }
@@ -131,7 +131,7 @@
 /* Normal-resolution CSS */
 .logo {
    width: 120px;
-   background: url(logo.png) no-repeat 0 0;
+   background: url("../images/vfs_logo.png") no-repeat 0 0;
 }
 
 @media only screen and (min-width: 320px) {
@@ -214,8 +214,7 @@ only screen and (                min-resolution: 2dppx)  and (min-width: 1300px)
 
   /* Large screen, retina, stuff to override above media query */
     .logo {
-        background: url(logo@2x.png) no-repeat 0 0;
-        background-size: 120px;   /* Equal to normal logo width */
+        background: url("../images/vfs_logo.png") no-repeat 0 0;
+        background-size: 240px;   /* Equal to normal logo width */
    }
-
 }
