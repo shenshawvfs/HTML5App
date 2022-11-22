@@ -27,6 +27,8 @@
     border: none;
     margin:0;
     padding:0;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px;
 }
 
 /* Remove default padding */
