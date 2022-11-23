@@ -2,10 +2,9 @@
 <!--
 HTML5 App Template
 
-Copyright (C)2014-2022, Kibble Online Inc., in cooperation with Vancouver Film School.
+Copyright (C)2014-2022, Kibble Game Studios Inc., in cooperation with Vancouver Film School.
 
 Author: Scott Henshaw
-Contributor: Clinton Ramonida
 -->
 <html>
 
@@ -19,109 +18,44 @@ Contributor: Clinton Ramonida
         <link rel="stylesheet" href="css/style-grid.css" media="all">
         <link rel="stylesheet" href="css/style-menu.css" media="all">
         <link rel="stylesheet" href='css/style.css' media="all">
-        <!-- <link rel="stylesheet" href="css/style-mobile.css">  Media Queries -->
+        <!-- <link rel="stylesheet" href="css/style.css">  Media Queries -->
 
         <!-- Link in 3rd party libraries here -->
         <!-- <script src='//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer></script> -->
 
         <!-- Add local styles here -->
         <style type="text/css">
-            /* this is here to preload faster beor ethe first paint */
-            .lazyload, .content-wrapper { display:none; }
         </style>
     </head>
-    <!--        ****PLEASE READ****
-            Application's Structure Details:
-    All the "wrapper" is in a form of CSS GRID Layout.
-    Each grid "area" has a "container" in a form of "flexbox".
-    And each flexbox "container" contains "flexitems".
-    -->
-    <body class="grid-wrapper app">
+    <body class="grid wrapper app debug">
+        <!-- Grid styles apply to top level beneath wrapper -->
 
-        <!-- Inner grid usable area -->
-        <section class="grid-column-full grid-row-full content"></section>
-
-        <!-- Header -->
-        <header id="header-wrapper" class="grid-column-full grid-row-head grid-debug">
-            <div id="header-container" class="header">
-                <div class="item">
-                    <h1>HEADER</h1>
-                </div>
-            </div>
+        <header class="column-full row-head debug">
+            <!-- Header -->
+            <h2>TITLE</h2>
         </header>
 
-        <!-- Nav Bar -->
-        <nav class="grid-column-full grid-row-nav container">
-            <ul class="menu">
-                <li class="dropdown">
-                    <button class="dropbtn">File</button>
-                    <ul class="dropdown-content">
-                        <li class="menu-item">New</li>
-                        <li class="menu-item">Open</li>
-                        <li class="menu-item">Save</li>
-                        <li class="menu-item">Save As</li>
-                        <li class="menu-item">Export</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <button class="dropbtn">Edit</button>
-                    <ul class="dropdown-content">
-                        <li class="menu-item">Undo</li>
-                        <li class="menu-item">Redo</li>
-                        <li class="menu-item">Cut</li>
-                        <li class="menu-item">Copy</li>
-                        <li class="menu-item">Paste</li>
-                        <li class="menu-item">Delete</li>
-                        <li class="menu-item">Select All</li>
-                    </ul>
-                </li>
-            </ul>
+        <nav class="column-full row-nav container debug">
+            <!-- Nav Bar -->
         </nav>
 
-        <!-- Sidebar -->
-        <aside id="sidebar" class="grid-sidebar-left grid-row-main">
-            <div class="sidebar">
-                <div class="flexitem">
-                    <h2>MY SIDE BAR</h2>
-                </div>
-            </div>
+        <aside class="column-sidebar-left row-main debug">
+            <!-- Sidebar -->
         </aside>
 
-        <!-- The Main Content -->
-        <main class="grid-column-main grid-row-main">
-            <section id="main-screen" class="item container columns content">
-                <!-- Add your HTML5 tags here to structure your app's UI -->
-                <div class="item content">
-                    <h2>THE MAIN CONTENT</h2>
-                </div>
-            </section>
+        <main class="column-main row-main debug">
+            <!-- The Main Content -->
         </main>
 
-        <!-- Secondary Content -->
-        <section id="results-screen" class="grid-column-main grid-row-tail results">
-
-            <div class="grid-results area-child">
-                <!-- Dynamic updates here -->
-                <h3 id="results-area" >Results Area: Dynamic Updates here!</h3>
-            </div>
-
-            <div class="grid-buttons area-child">
-                <!-- A flexbox container inside a grid area -->
-                <div id="button-container" class="buttons flexbox">
-                    <button id="start-button" class="btn flexitem">START</button>
-                    <button id="stop-button" class="btn flexitem">STOP</button>
-                </div>
-            </div>
+        <section class="column-main row-tail debug">
+            <!-- Secondary Content -->
         </section>
 
-        <!-- The Footer -->
-        <footer class="grid-column-full grid-row-foot">
-            <div class="container evenly content">
-                <div class="item">
-                    <h1>FOOTER</h1>
-                </div>
-            </div>
+        <footer class="column-full row-foot debug">
+            <!-- The Footer -->
+            Copyright &copy 2022 [Your Name]
         </footer>
+
         <!-- Scripts section (JS) -->
         <!--
             Load your app core here, while not strictly W3C compliant it guarentees
