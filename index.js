@@ -4,7 +4,6 @@
  */
 'use strict';
 
-import Loader from './scripts/serviceWorkerLoader.js';
 import App from './scripts/app.js';
 
 // MAIN

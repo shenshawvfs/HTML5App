@@ -6,7 +6,8 @@
 
 export default class App {
 
-    #_hiddenValue; // THE ES2022 method to say "ehy this is private, hands off"
+    #_hiddenValue; // THE ES2022 method to say "hey this is private, hands off"
+    #__private__;
 
 	constructor( opt1 = null ) {
         // constructor for new App's, note use of initializer in constructor parameters
@@ -17,7 +18,7 @@ export default class App {
 	     * convention says if we prefix the name with an underscore, other devs
 	     * will understand that we mean this to be private data.
 	     */
-	    this.__private__ = {
+	    this.#__private__ = {
             done:     false,
             counter:  0,
             interval: null
@@ -48,7 +49,7 @@ export default class App {
 
 	            // variable scoped to the block, not visible outside the {} its defined within
 	            // OK this is not very useful, lets clean up...
-                let my = this.__private__;
+                let my = this.#__private__;
 
                 my.counter = 0;
 
@@ -71,8 +72,8 @@ export default class App {
      *  we can pseudo hide private data if we want.
      *
      */
-    get done() { return this.__private__.done; }
-    set done( value ) { this.__private__.done = value; }
+    get done() { return this.#__private__.done; }
+    set done( value ) { this.#__private__.done = value; }
 
     static get CONST() {
         // Cute trick to tie constants to the class, access App.CONST.FPS
@@ -90,7 +91,7 @@ export default class App {
 
     render() {
         // Refresh the view - canvas and dom elements, etc from here.
-        let my = this.__private__;
+        let my = this.#__private__;
 
         my.counter++;
         if (my.counter > 1000)
@@ -103,7 +104,7 @@ export default class App {
 
     run() {
         // Entry point, create a nw app, then tell it to run itself
-		let my = this.__private__;
+		let my = this.#__private__;
         my.interval = window.setInterval( deltaTime => {
 
 			this.update();
@@ -117,7 +118,7 @@ export default class App {
      *  And users of this class cannot see or use these methods
      */
     #_somePrivateMethod( params = true ) {
-        
+
     }
 }
 
