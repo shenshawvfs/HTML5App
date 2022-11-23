@@ -36,13 +36,10 @@ Contributor: Clinton Ramonida
     Each grid "area" has a "container" in a form of "flexbox".
     And each flexbox "container" contains "flexitems".
     -->
-    <body class="grid-wrapper app">
+    <body class="grid wrapper app debug">
 
-        <!-- Inner grid usable area -->
-        <section class="grid-column-full grid-row-full content"></section>
-
-        <!-- Header -->
-        <header id="header-wrapper" class="grid-column-full grid-row-head grid-debug">
+        <header class="column-full row-head debug">
+            <!-- Header -->
             <div id="header-container" class="header">
                 <div class="item">
                     <h1>HEADER</h1>
@@ -50,36 +47,38 @@ Contributor: Clinton Ramonida
             </div>
         </header>
 
-        <!-- Nav Bar -->
-        <nav class="grid-column-full grid-row-nav container">
-            <ul class="menu">
-                <li class="dropdown">
-                    <button class="dropbtn">File</button>
-                    <ul class="dropdown-content">
-                        <li class="menu-item">New</li>
-                        <li class="menu-item">Open</li>
-                        <li class="menu-item">Save</li>
-                        <li class="menu-item">Save As</li>
-                        <li class="menu-item">Export</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <button class="dropbtn">Edit</button>
-                    <ul class="dropdown-content">
-                        <li class="menu-item">Undo</li>
-                        <li class="menu-item">Redo</li>
-                        <li class="menu-item">Cut</li>
-                        <li class="menu-item">Copy</li>
-                        <li class="menu-item">Paste</li>
-                        <li class="menu-item">Delete</li>
-                        <li class="menu-item">Select All</li>
-                    </ul>
-                </li>
-            </ul>
+        <nav class="column-full grid row-nav">
+            <!-- Nav Bar -->
+            <div class="container">
+                <ul class="menu">
+                    <li class="dropdown">
+                        <button class="dropbtn">File</button>
+                        <ul class="dropdown-content">
+                            <li class="menu-item">New</li>
+                            <li class="menu-item">Open</li>
+                            <li class="menu-item">Save</li>
+                            <li class="menu-item">Save As</li>
+                            <li class="menu-item">Export</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <button class="dropbtn">Edit</button>
+                        <ul class="dropdown-content">
+                            <li class="menu-item">Undo</li>
+                            <li class="menu-item">Redo</li>
+                            <li class="menu-item">Cut</li>
+                            <li class="menu-item">Copy</li>
+                            <li class="menu-item">Paste</li>
+                            <li class="menu-item">Delete</li>
+                            <li class="menu-item">Select All</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
-        <!-- Sidebar -->
-        <aside id="sidebar" class="grid-sidebar-left grid-row-main">
+        <aside class="column-sidebar-left row-main">
+            <!-- Sidebar -->
             <div class="sidebar">
                 <div class="flexitem">
                     <h2>MY SIDE BAR</h2>
@@ -87,8 +86,8 @@ Contributor: Clinton Ramonida
             </div>
         </aside>
 
-        <!-- The Main Content -->
-        <main class="grid-column-main grid-row-main">
+        <main class="column-main-right row-main">
+            <!-- The Main Content -->
             <section id="main-screen" class="item container columns content">
                 <!-- Add your HTML5 tags here to structure your app's UI -->
                 <div class="item content">
@@ -97,25 +96,25 @@ Contributor: Clinton Ramonida
             </section>
         </main>
 
-        <!-- Secondary Content -->
-        <section id="results-screen" class="grid-column-main grid-row-tail results">
-
-            <div class="grid-results area-child">
-                <!-- Dynamic updates here -->
-                <h3 id="results-area" >Results Area: Dynamic Updates here!</h3>
-            </div>
-
-            <div class="grid-buttons area-child">
-                <!-- A flexbox container inside a grid area -->
-                <div id="button-container" class="buttons flexbox">
-                    <button id="start-button" class="btn flexitem">START</button>
-                    <button id="stop-button" class="btn flexitem">STOP</button>
+        <section class="column-main-right row-tail">
+            <!-- Secondary Content -->
+            <div class="results container columns">
+                <div class="grid-results area-child">
+                    <!-- Dynamic updates here -->
+                    <h3 id="results-area" >Results Area: Dynamic Updates here!</h3>
+                </div>
+                <div class="grid-buttons area-child">
+                    <!-- A flexbox container inside a grid area -->
+                    <div id="button-container" class="buttons flexbox">
+                        <button id="start-button" class="btn flexitem">START</button>
+                        <button id="stop-button" class="btn flexitem">STOP</button>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- The Footer -->
-        <footer class="grid-column-full grid-row-foot">
+        <footer class="column-full row-foot">
             <div class="container evenly content">
                 <div class="item">
                     <h1>FOOTER</h1>

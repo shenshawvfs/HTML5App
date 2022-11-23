@@ -6,7 +6,7 @@
 
 export default class App {
 
-    #_hiddenValue; // THE ES2022 method to say "hey this is private, hands off"
+    #__hiddenValue__; // THE ES2022 method to say "hey this is private, hands off"
     #__private__;
 
 	constructor( opt1 = null ) {
@@ -24,7 +24,7 @@ export default class App {
             interval: null
 	    }
 
-        this.#_hiddenValue = 42;
+        this.#__hiddenValue__ = 42;
 
 	    /*
 	     * Delete this variable, its just here to show a variable scoped
